@@ -22,7 +22,6 @@ export default function Events({ t, lang }: EventsProps) {
         </div>
 
         <div className="events-body">
-          {/* Left column: text */}
           <Reveal className="events-text">
             <p>{l(t, "body", lang)}</p>
             <ul className="events-bullets">
@@ -30,12 +29,11 @@ export default function Events({ t, lang }: EventsProps) {
                 <li key={i}>{l(bullet, "text", lang)}</li>
               ))}
             </ul>
-            <a href="#find" className="btn btn-verde">
+            <a href="#find" className="btn btn-verde" data-umami-event="events-cta-contact">
               {l(t, "cta", lang)}
             </a>
           </Reveal>
 
-          {/* Right column: visual */}
           <Reveal delay={1} className="events-visual">
             <div className="events-ring" />
             <div className="events-ring-2" />

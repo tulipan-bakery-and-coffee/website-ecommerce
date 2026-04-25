@@ -17,8 +17,7 @@ export default function Nav({ lang, setLang, t }: NavProps) {
   return (
     <nav className="nav">
       <div className="nav-inner container">
-        {/* ── Brand ──────────────────────────────────────────── */}
-        <a href="#" className="nav-brand">
+        <a href="#" className="nav-brand" data-umami-event="nav-logo-click">
           <Image
             src="/assets/isotipo-dark.webp"
             alt="Tulipan 58 isotipo"
@@ -29,25 +28,27 @@ export default function Nav({ lang, setLang, t }: NavProps) {
           <span className="nav-wordmark font-display">tulipan58</span>
         </a>
 
-        {/* ── Links (hidden on mobile) ───────────────────────── */}
         <ul className={`nav-links ${mobileOpen ? "nav-links--open" : ""}`}>
           {t.links.map((link) => (
             <li key={link.key}>
-              <a href={`#${link.key}`} className="nav-link">
+              <a
+                href={`#${link.key}`}
+                className="nav-link"
+                data-umami-event={`nav-link-${link.key}`}
+              >
                 {l(link, "label", lang)}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* ── Right cluster ──────────────────────────────────── */}
         <div className="nav-actions">
-          {/* Language toggle */}
           <div className="lang-toggle">
             <button
               className={`lang-toggle-btn ${lang === "es" ? "lang-toggle-btn--active" : ""}`}
               onClick={() => setLang("es")}
               aria-label="Espanol"
+              data-umami-event="lang-switch-es"
             >
               ES
             </button>
@@ -55,21 +56,21 @@ export default function Nav({ lang, setLang, t }: NavProps) {
               className={`lang-toggle-btn ${lang === "en" ? "lang-toggle-btn--active" : ""}`}
               onClick={() => setLang("en")}
               aria-label="English"
+              data-umami-event="lang-switch-en"
             >
               EN
             </button>
           </div>
 
-          {/* CTA */}
-          <a href="#find" className="btn btn-bordo nav-cta">
+          <a href="#find" className="btn btn-bordo nav-cta" data-umami-event="nav-cta-encuentranos">
             {l(t, "cta", lang)}
           </a>
 
-          {/* Mobile hamburger */}
           <button
             className="nav-hamburger"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
+            data-umami-event="nav-mobile-menu-toggle"
           >
             <span className="nav-hamburger-line" />
             <span className="nav-hamburger-line" />

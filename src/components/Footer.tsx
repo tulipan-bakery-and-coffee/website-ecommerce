@@ -13,7 +13,6 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
   return (
     <footer className="footer">
       <div className="footer-top container">
-        {/* ── Brand column ────────────────────────────────────── */}
         <div className="footer-col footer-col--brand">
           <div className="footer-brand">
             <Image
@@ -28,13 +27,12 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
           <p className="footer-tagline">{l(t, "tagline", lang)}</p>
         </div>
 
-        {/* ── Nav column ──────────────────────────────────────── */}
         <div className="footer-col">
           <h4 className="footer-col-title">{l(t, "navLabel", lang)}</h4>
           <ul className="footer-list">
             {nav.links.map((link) => (
               <li key={link.key}>
-                <a href={`#${link.key}`} className="footer-link">
+                <a href={`#${link.key}`} className="footer-link" data-umami-event={`footer-nav-${link.key}`}>
                   {l(link, "label", lang)}
                 </a>
               </li>
@@ -42,31 +40,40 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
           </ul>
         </div>
 
-        {/* ── Social column ───────────────────────────────────── */}
         <div className="footer-col">
           <h4 className="footer-col-title">{l(t, "socialLabel", lang)}</h4>
           <ul className="footer-list">
             <li>
-              <a href="#" className="footer-link">
+              <a href="https://instagram.com/tulipan58mid" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-instagram">
                 Instagram
               </a>
             </li>
             <li>
-              <a href="#" className="footer-link">
+              <a href="https://facebook.com/tulipan58mid" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-facebook">
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5219844696732" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-whatsapp">
                 WhatsApp
               </a>
             </li>
           </ul>
         </div>
 
-        {/* ── Links column ────────────────────────────────────── */}
         <div className="footer-col">
           <h4 className="footer-col-title">{l(t, "linksLabel", lang)}</h4>
           <ul className="footer-list">
             <li>
+              <a href="https://tulipan.mx" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-link-website">
+                tulipan.mx
+              </a>
+            </li>
+            <li>
               <button
                 className={`footer-lang-btn ${lang === "es" ? "footer-lang-btn--active" : ""}`}
                 onClick={() => setLang("es")}
+                data-umami-event="footer-lang-switch-es"
               >
                 Espanol
               </button>
@@ -75,6 +82,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
               <button
                 className={`footer-lang-btn ${lang === "en" ? "footer-lang-btn--active" : ""}`}
                 onClick={() => setLang("en")}
+                data-umami-event="footer-lang-switch-en"
               >
                 English
               </button>
@@ -83,7 +91,6 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
       </div>
 
-      {/* ── Bottom bar ───────────────────────────────────────── */}
       <div className="footer-bottom container">
         <p className="footer-legal">{l(t, "legal", lang)}</p>
         <p className="footer-credit">{l(t, "credit", lang)}</p>

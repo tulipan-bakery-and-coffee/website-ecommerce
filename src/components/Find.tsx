@@ -21,7 +21,6 @@ export default function Find({ t, lang }: FindProps) {
         </div>
 
         <div className="find-body">
-          {/* Left: info */}
           <Reveal className="find-info">
             <div>
               <div className="info-block">
@@ -39,17 +38,17 @@ export default function Find({ t, lang }: FindProps) {
                 <div className="info-label">{l(t, "contactLabel", lang)}</div>
                 <div className="info-value info-value--body">
                   {t.instagram && (
-                    <a href={`https://instagram.com/${t.instagram.replace("@", "")}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`https://instagram.com/${t.instagram.replace("@", "")}`} target="_blank" rel="noopener noreferrer" data-umami-event="contact-instagram">
                       ig · {t.instagram}
                     </a>
                   )}
                   {t.whatsapp && (
-                    <a href={`https://wa.me/${t.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`https://wa.me/${t.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" data-umami-event="contact-whatsapp">
                       wa · {t.whatsapp}
                     </a>
                   )}
                   {t.website && (
-                    <a href={`https://${t.website}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`https://${t.website}`} target="_blank" rel="noopener noreferrer" data-umami-event="contact-website">
                       web · {t.website}
                     </a>
                   )}
@@ -59,19 +58,18 @@ export default function Find({ t, lang }: FindProps) {
 
             <div className="find-ctas">
               {t.mapsUrl && (
-                <a href={t.mapsUrl} className="btn btn-bordo" target="_blank" rel="noopener noreferrer">
+                <a href={t.mapsUrl} className="btn btn-bordo" target="_blank" rel="noopener noreferrer" data-umami-event="cta-open-maps">
                   {l(t, "ctaMap", lang)}
                 </a>
               )}
               {t.whatsapp && (
-                <a href={`https://wa.me/${t.whatsapp.replace(/\D/g, "")}`} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                <a href={`https://wa.me/${t.whatsapp.replace(/\D/g, "")}`} className="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-umami-event="cta-whatsapp-message">
                   {l(t, "ctaWa", lang)}
                 </a>
               )}
             </div>
           </Reveal>
 
-          {/* Right: map */}
           <Reveal delay={1} className="find-map" aria-label="mapa">
             <svg className="street-map" viewBox="0 0 600 500" preserveAspectRatio="none">
               <g stroke="currentColor" strokeWidth="1" fill="none" opacity="0.35">

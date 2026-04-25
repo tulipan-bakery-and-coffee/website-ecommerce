@@ -13,7 +13,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
   return (
     <section className="hero" id="hero">
       <div className="hero-grid container">
-        {/* ── Left column ─────────────────────────────────────── */}
         <div className="hero-copy">
           <Reveal>
             <p className="eyebrow hero-eyebrow">{l(t, "eyebrow", lang)}</p>
@@ -23,42 +22,31 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
             <Reveal as="span" className="hero-title-line hero-title-line--1">
               {l(t, "title1", lang)}
             </Reveal>
-            <Reveal
-              as="span"
-              delay={1}
-              className="hero-title-line hero-title-line--2"
-            >
+            <Reveal as="span" delay={1} className="hero-title-line hero-title-line--2">
               {l(t, "title2", lang)}
             </Reveal>
-            <Reveal
-              as="span"
-              delay={2}
-              className="hero-title-line hero-title-line--3"
-            >
+            <Reveal as="span" delay={2} className="hero-title-line hero-title-line--3">
               {l(t, "title3", lang)}
             </Reveal>
           </h1>
 
           <Reveal delay={3}>
             <p className="hero-foot">
-              <span className="hero-foot-dash" aria-hidden="true">
-                --
-              </span>{" "}
+              <span className="hero-foot-dash" aria-hidden="true">--</span>{" "}
               {l(t, "foot", lang)}
             </p>
           </Reveal>
 
           <Reveal delay={4} className="hero-ctas">
-            <a href="#menu" className="btn btn-bordo">
+            <a href="#menu" className="btn btn-bordo" data-umami-event="hero-cta-ver-menu">
               {l(t, "ctaPrimary", lang)}
             </a>
-            <a href="#about" className="btn btn-ghost">
+            <a href="#about" className="btn btn-ghost" data-umami-event="hero-cta-como-llegar">
               {l(t, "ctaSecondary", lang)}
             </a>
           </Reveal>
         </div>
 
-        {/* ── Right column ────────────────────────────────────── */}
         <Reveal delay={2} className="hero-visual">
           <div className="hero-visual-bg">
             <Image
@@ -69,7 +57,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
               className="hero-visual-isotipo"
               aria-hidden="true"
             />
-
             {imageUrl ? (
               <Image
                 src={imageUrl}
@@ -86,7 +73,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
                 </span>
               </div>
             )}
-
             <div className="hero-visual-meta">
               <span className="hero-visual-meta-label">
                 {l(t, "photoLabel", lang)}

@@ -30,47 +30,42 @@ export default function Menu({ t, lang }: MenuProps) {
   return (
     <section className="menu" id="menu">
       <div className="container">
-        {/* ── Head ───────────────────────────────────────────── */}
         <Reveal className="section-head section-head--light">
           <p className="eyebrow">{l(t, "eyebrow", lang)}</p>
           <h2 className="section-head-title">{l(t, "title", lang)}</h2>
         </Reveal>
 
-        {/* ── Filters ───────────────────────────────────────── */}
         <Reveal className="menu-filters">
           {filters.map((f) => (
             <button
               key={f.key}
               className={`menu-filter ${filter === f.key ? "menu-filter--active" : ""}`}
               onClick={() => setFilter(f.key)}
+              data-umami-event={`menu-filter-${f.key}`}
             >
               {l(t, f.labelField, lang)}
             </button>
           ))}
         </Reveal>
 
-        {/* ── Grid ──────────────────────────────────────────── */}
         <div className="menu-grid">
           {filtered.map((item, i) => (
-            <Reveal key={i} delay={(i % 3) + 1} className="menu-item">
+            <Reveal key={i} delay={(i % 3) + 1} className="menu-item" data-umami-event={`menu-item-view-${l(item, "name", lang).replace(/\s+/g, "-")}`}>
               <div className="menu-item-head">
                 <span className="menu-item-name">{l(item, "name", lang)}</span>
                 <span className="menu-item-price">${item.price}</span>
               </div>
               <p className="menu-item-desc">{l(item, "description", lang)}</p>
-              <span className="menu-item-arrow" aria-hidden="true">
-                &rarr;
-              </span>
+              <span className="menu-item-arrow" aria-hidden="true">&rarr;</span>
             </Reveal>
           ))}
         </div>
 
-        {/* ── Footer ────────────────────────────────────────── */}
         <Reveal className="menu-footer">
           <p className="menu-note">
             <em>{l(t, "note", lang)}</em>
           </p>
-          <a href="#find" className="btn btn-ghost menu-cta">
+          <a href="#find" className="btn btn-ghost menu-cta" data-umami-event="menu-cta-full-menu">
             {l(t, "cta", lang)}
           </a>
         </Reveal>
