@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# lockfiles (npm only)
+pnpm-lock.yaml
+yarn.lock
+
 # vercel
 
 # typescript
