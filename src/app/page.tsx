@@ -13,7 +13,6 @@ export default async function Page() {
 
   try {
     const sanity = await getAllContent();
-
     if (sanity.heroSection) {
       content = {
         nav: sanity.siteSettings
@@ -56,6 +55,7 @@ export default async function Page() {
     }
   } catch {
     // Sanity unavailable — use fallback content
+    console.error("Failed to fetch content from Sanity. Using fallback content.");
   }
 
   return (

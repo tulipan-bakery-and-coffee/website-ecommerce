@@ -24,6 +24,7 @@ export default function Nav({ lang, setLang, t }: NavProps) {
             width={36}
             height={36}
             className="nav-brand-icon"
+            loading="eager"
           />
           <span className="nav-wordmark font-display">tulipan58</span>
         </a>

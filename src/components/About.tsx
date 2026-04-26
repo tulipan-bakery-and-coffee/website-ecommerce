@@ -45,6 +45,7 @@ export default function About({ t, lang, imageUrl }: AboutProps) {
               height={300}
               className="about-visual-isotipo"
               aria-hidden="true"
+              loading="eager"
             />
             <div className="about-visual-meta">
               <span style={{ fontWeight: 700, letterSpacing: '0.22em' }}>02 / 04</span>

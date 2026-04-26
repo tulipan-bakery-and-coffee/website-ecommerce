@@ -18,6 +18,7 @@ export default function Statement({ t, lang }: StatementProps) {
         height={400}
         className="statement-isotipo"
         aria-hidden="true"
+        loading="eager"
       />
       <div className="container">
         <Reveal>

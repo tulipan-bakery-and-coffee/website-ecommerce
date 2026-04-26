@@ -56,6 +56,7 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
               height={400}
               className="hero-visual-isotipo"
               aria-hidden="true"
+              loading="eager"
             />
             {imageUrl ? (
               <Image

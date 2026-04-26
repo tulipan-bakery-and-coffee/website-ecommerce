@@ -35,6 +35,7 @@ export default function Experience({ t, lang }: ExperienceProps) {
                   height={200}
                   className="exp-card-isotipo"
                   aria-hidden="true"
+                  loading="eager"
                 />
                 <span className="exp-tag">
                   {l(card, "tag", lang)}
