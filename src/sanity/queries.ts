@@ -119,6 +119,7 @@ export interface FindSection {
   mapLabel_es: string;
   mapLabel_en: string;
   mapsUrl: string;
+  mapEmbedUrl?: string;
 }
 
 export interface FooterSection {
@@ -211,7 +212,7 @@ const findSectionQuery = `*[_type == "findSection"][0]{
   contactLabel_es, contactLabel_en,
   instagram, whatsapp, website,
   ctaMap_es, ctaMap_en, ctaWa_es, ctaWa_en,
-  mapLabel_es, mapLabel_en, mapsUrl
+  mapLabel_es, mapLabel_en, mapsUrl, mapEmbedUrl
 }`;
 
 const footerSectionQuery = `*[_type == "footerSection"][0]{

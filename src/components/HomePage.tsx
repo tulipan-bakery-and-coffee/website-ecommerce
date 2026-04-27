@@ -18,12 +18,16 @@ interface HomePageProps {
   content: SiteContent;
   cateringBanner_es?: string;
   cateringBanner_en?: string;
+  heroImageUrl?: string;
+  aboutImageUrl?: string;
 }
 
 export default function HomePage({
   content,
   cateringBanner_es = "catering y eventos · dos semanas de anticipacion · escribenos",
   cateringBanner_en = "catering & events · two weeks ahead · write to us",
+  heroImageUrl,
+  aboutImageUrl,
 }: HomePageProps) {
   const [lang, setLang] = useState<Lang>("es");
 
@@ -34,8 +38,8 @@ export default function HomePage({
       <Nav lang={lang} setLang={setLang} t={content.nav} />
       <Ticker text={bannerText} />
       <main>
-        <Hero t={content.hero} lang={lang} />
-        <About t={content.about} lang={lang} />
+        <Hero t={content.hero} lang={lang} imageUrl={heroImageUrl} />
+        <About t={content.about} lang={lang} imageUrl={aboutImageUrl} />
         <Menu t={content.menu} lang={lang} />
         <Experience t={content.experience} lang={lang} />
         <Events t={content.events} lang={lang} />

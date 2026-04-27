@@ -54,6 +54,11 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
               </a>
             </li>
             <li>
+              <a href="https://tiktok.com/@tulipan58mid" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-tiktok">
+                TikTok
+              </a>
+            </li>
+            <li>
               <a href="https://wa.me/5219844696732" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-whatsapp">
                 WhatsApp
               </a>

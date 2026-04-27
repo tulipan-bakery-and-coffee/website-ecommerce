@@ -180,6 +180,7 @@ export interface FindContent {
   mapLabel_es: string;
   mapLabel_en: string;
   mapsUrl: string;
+  mapEmbedUrl?: string;
 }
 
 /* ── Footer ───────────────────────────────────────────────────────── */

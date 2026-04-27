@@ -30,6 +30,7 @@ export default defineType({
     defineField({ name: "mapLabel_es", title: "Map Label (ES)", type: "string" }),
     defineField({ name: "mapLabel_en", title: "Map Label (EN)", type: "string" }),
     defineField({ name: "mapsUrl", title: "Google Maps URL", type: "string" }),
+    defineField({ name: "mapEmbedUrl", title: "Google Maps Embed URL (iframe src)", type: "string", description: "Paste the src URL from Google Maps embed iframe" }),
   ],
   preview: {
     prepare() {

@@ -1,7 +1,8 @@
-import { getAllContent } from "@/sanity/queries";
+import { getAllContent, type AllContent } from "@/sanity/queries";
 import { fallbackContent } from "@/lib/fallback-content";
 import HomePage from "@/components/HomePage";
 import type { SiteContent } from "@/types/content";
+import { urlFor } from "@/sanity/image";
 
 export const revalidate = 60;
 
@@ -10,59 +11,68 @@ export default async function Page() {
   let cateringBanner_es =
     "catering y eventos · dos semanas de anticipacion · escribenos";
   let cateringBanner_en = "catering & events · two weeks ahead · write to us";
+  let sanityData: AllContent | null = null;
 
   try {
-    const sanity = await getAllContent();
-    if (sanity.heroSection) {
+    sanityData = await getAllContent();
+    if (sanityData.heroSection) {
       content = {
-        nav: sanity.siteSettings
+        nav: sanityData.siteSettings
           ? {
-              links: sanity.siteSettings.navLinks ?? fallbackContent.nav.links,
+              links: sanityData.siteSettings.navLinks ?? fallbackContent.nav.links,
               cta_es: fallbackContent.nav.cta_es,
               cta_en: fallbackContent.nav.cta_en,
             }
           : fallbackContent.nav,
-        hero: sanity.heroSection ?? fallbackContent.hero,
-        about: sanity.aboutSection
-          ? { ...sanity.aboutSection }
+        hero: sanityData.heroSection ?? fallbackContent.hero,
+        about: sanityData.aboutSection
+          ? { ...sanityData.aboutSection }
           : fallbackContent.about,
         menu:
-          sanity.menuItems.length > 0
+          sanityData.menuItems.length > 0
             ? {
                 ...fallbackContent.menu,
-                items: sanity.menuItems,
+                items: sanityData.menuItems,
               }
             : fallbackContent.menu,
         experience:
-          sanity.experienceCards.length > 0
+          sanityData.experienceCards.length > 0
             ? {
                 ...fallbackContent.experience,
-                cards: sanity.experienceCards,
+                cards: sanityData.experienceCards,
               }
             : fallbackContent.experience,
-        events: sanity.eventsSection ?? fallbackContent.events,
-        statement: sanity.statementSection ?? fallbackContent.statement,
-        find: sanity.findSection ?? fallbackContent.find,
-        footer: sanity.footerSection ?? fallbackContent.footer,
+        events: sanityData.eventsSection ?? fallbackContent.events,
+        statement: sanityData.statementSection ?? fallbackContent.statement,
+        find: sanityData.findSection ?? fallbackContent.find,
+        footer: sanityData.footerSection ?? fallbackContent.footer,
       };
     }
 
-    if (sanity.siteSettings?.cateringBanner_es) {
-      cateringBanner_es = sanity.siteSettings.cateringBanner_es;
+    if (sanityData.siteSettings?.cateringBanner_es) {
+      cateringBanner_es = sanityData.siteSettings.cateringBanner_es;
     }
-    if (sanity.siteSettings?.cateringBanner_en) {
-      cateringBanner_en = sanity.siteSettings.cateringBanner_en;
+    if (sanityData.siteSettings?.cateringBanner_en) {
+      cateringBanner_en = sanityData.siteSettings.cateringBanner_en;
     }
   } catch {
-    // Sanity unavailable — use fallback content
     console.error("Failed to fetch content from Sanity. Using fallback content.");
   }
+
+  const heroImageUrl = sanityData?.heroSection?.heroImage
+    ? urlFor(sanityData.heroSection.heroImage).width(1200).quality(80).url()
+    : undefined;
+  const aboutImageUrl = sanityData?.aboutSection?.aboutImage
+    ? urlFor(sanityData.aboutSection.aboutImage).width(800).quality(80).url()
+    : undefined;
 
   return (
     <HomePage
       content={content}
       cateringBanner_es={cateringBanner_es}
       cateringBanner_en={cateringBanner_en}
+      heroImageUrl={heroImageUrl}
+      aboutImageUrl={aboutImageUrl}
     />
   );
 }
