@@ -66,7 +66,7 @@ Las etiquetas de café son el artefacto de marca más desarrollado. Lo que estab
 
 ## 4. Producto y contenido
 
-- Café de especialidad, tostado propio, origen Veracruz.
+- Café de especialidad de origen Veracruz. **El tueste no es propio**: lo hacen casas tostadoras de Mérida y Veracruz. El argumento es la selección y la trazabilidad, no el tostador.
 - SKUs documentados: **Amanecer** (lavado, La Laja Veracruz, tueste medio-oscuro, para espresso — "intenso y dulce") y **Pausa** (honey, Xico Veracruz, tueste medio, para filtrados — "frutal y suave").
 - Formatos: 100G y 250G.
 - Repostería **de acompañamiento**, no línea propia: galletas de gragea, de mermelada, besitos de nuez, triple chocolate, brownie. Al revés de la cafetería tradicional, aquí el café manda y la repostería existe para acompañarlo. No se le da jerarquía visual ni de contenido por encima del café.

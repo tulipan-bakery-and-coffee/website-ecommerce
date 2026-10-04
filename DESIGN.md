@@ -216,7 +216,7 @@ La capa de atmósfera la dan los isotipos: el logotipo se coloca recortado por f
 
 ### Named Rules
 
-**La Regla del Reposo Plano.** Ninguna superficie lleva sombra en estado por defecto. Si un elemento necesita separarse de su fondo, cambia de color o gana un borde de 1px — no se levanta.
+**La Regla del Reposo Plano.** Ninguna superficie lleva sombra en estado por defecto. Si un elemento necesita separarse de su fondo, cambia de color o gana un borde de 1px, no se levanta. **Incluido el modal**: el aviso de privacidad es un bloque de color pleno, no una tarjeta flotante.
 
 ## Shapes
 
@@ -290,6 +290,59 @@ Entrada por defecto de todo el contenido. `IntersectionObserver` con umbral de 0
 
 **No respeta `prefers-reduced-motion`.** Ni el reveal, ni el ticker, ni la órbita, ni el pulso del pin. Es la deuda de accesibilidad más clara del sistema.
 
+### Páginas internas
+
+Las rutas que no son la home (`/eventos`, `/menu`, `/identidad`, y sus equivalentes bajo `/en`) comparten armazón: fondo cremita, enlace de vuelta más conmutador de idioma arriba, par eyebrow + titular en la retícula de sección, y cuerpo en mono con `text-wrap: pretty`.
+
+No llevan nav ni footer a propósito: son superficies de lectura, no de navegación. El conmutador de idioma vive arriba porque sin él no habría forma de cambiar de lengua ni de volver, y el `hreflang` dejaría de ser seguible por una persona.
+
+### Ficha de café
+
+La retícula de pares etiqueta/valor del empaque, en `<dl>`. Etiqueta en mono 10px con tracking 0.22em, valor en Halenoir 18px alineado a la derecha, regla de 1px entre filas. Vive dentro de una tarjeta de color pleno.
+
+Es la expresión más literal de "la ficha técnica es la voz": proceso, región, nivel de tueste y método, los cuatro datos que la bolsa imprime.
+
+### Filas de carta
+
+Retícula de dos columnas, nombre en Halenoir 22px y precio en mono al color verde profundo, con la descripción ocupando el ancho completo debajo. Separadas por reglas de 1px, nunca encerradas en tarjetas.
+
+La repostería usa la misma fila pero el precio se reemplaza por el maridaje: `con Espresso americano`. La jerarquía es intencional, el café manda.
+
+### Preguntas frecuentes
+
+`<details>` nativo: abre y cierra sin JavaScript, accesible por teclado de serie, y el contenido queda en el DOM aunque esté cerrado, que es lo que necesita un rastreador. El indicador es un `+` en verde profundo que rota 45 grados al abrir, en 200ms.
+
+### Aviso de privacidad
+
+`<dialog>` nativo, que trae atrapado de foco, cierre con Escape e inerte del resto del documento sin implementarlos. El panel es un bloque de color pleno en café quemado, **no una tarjeta flotante con sombra**: la Regla del Reposo Plano no admite excepción ni siquiera en la pieza más visible.
+
+Dos trampas que costaron encontrarlas: el preflight de Tailwind resetea `margin: 0` y se lleva por delante el `margin: auto` con el que `<dialog>` se centra solo; y el elemento hereda `text-transform` y `letter-spacing` de su contenedor, así que hay que neutralizarlos.
+
+### 404
+
+Pantalla completa sobre cremita, con isotipo, código en mono verde, titular en display hasta 72px donde el topónimo es un enlace en bordo con subrayado de 2px, y un botón de vuelta.
+
+### Enlace terciario
+
+Tercer nivel de acción, por debajo de botón relleno y botón fantasma. Mono 12px en verde profundo con subrayado de 1px y la flecha de la casa. Existe para no convertir cada acción nueva en un cuarto botón.
+
+### Movimiento
+
+Cuatro momentos, ninguno decorativo. Cada uno responde a una acción del visitante.
+
+| Momento | Propiedades | Curva y duración |
+|---|---|---|
+| Panel móvil | `opacity`, `transform` | `--ease-out` · 200ms, con `@starting-style` y `transition-behavior: allow-discrete` |
+| Press de control | `transform: scale(0.97)` / `0.96` | `ease-out` · 140ms |
+| Filtro de la carta | `opacity`, `transform` | `ease-out` · 120ms fuera, 140ms dentro |
+| Hamburguesa a X | `transform`, `opacity` | `--ease-in-out` · 200ms |
+
+La hamburguesa usa `--ease-in-out` y no `--ease-out` porque no entra ni sale: se mueve y rota en pantalla. Eso es morph, y el morph pide entrada y salida suaves.
+
+Transiciones, nunca keyframes, en todo lo que se puede disparar dos veces seguidas: una transición retoma desde donde va, un keyframe reinicia desde cero.
+
+**La Regla del Reposo Plano se aplica también aquí**: nada se mueve sin que el visitante lo haya provocado, salvo los tres bucles de ritmo (ticker, órbita, pulso del pin), que se apagan bajo `prefers-reduced-motion`.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -314,7 +367,14 @@ Entrada por defecto de todo el contenido. `IntersectionObserver` con umbral de 0
 - **Don't** tratar la identidad azul marino y rosa de "Tulipán Bakery & Coffee" como referencia. Es una marca retirada que sigue viva en diseños antiguos de Canva. Ver [BRAND-BRIEF.md](BRAND-BRIEF.md).
 
 ### Deuda conocida
-- El aviso de privacidad usa `<dialog>` nativo. Debe vivir como hijo de un `<div>`, nunca de un `<p>`: `<p>` solo admite contenido de frase y meterlo dentro rompía la hidratación de React.
-- `--lh-tight`, `--lh-snug`, `--radius-lg` y `--rail` están definidos en `:root` y no los usa nadie. Son tokens muertos: usarlos o borrarlos, no ampliarlos.
-- Ninguna animación consulta `prefers-reduced-motion`.
-- El mapa decorativo en SVG de `src/components/Find.tsx` dibuja calles del centro de Mérida, que no es la ubicación real. Hoy queda oculto porque Sanity entrega un `mapEmbedUrl`.
+
+- `--lh-tight`, `--lh-snug`, `--radius-lg` y `--rail` siguen definidos en `:root` sin que los use nadie. Son tokens muertos: usarlos o borrarlos, no ampliarlos.
+- El mapa decorativo en SVG de `src/components/Find.tsx` dibuja calles del centro de Mérida, que no es la ubicación. Hoy queda oculto porque Sanity entrega `mapEmbedUrl` y el componente prefiere el iframe; si alguien borra ese campo, reaparece un mapa falso del lugar equivocado.
+- El respaldo local de `src/lib/fallback-content.ts` conserva secciones en la voz vieja de minúsculas sin acentos. Solo se ven si Sanity deja de responder.
+
+### Resuelto desde la primera versión
+
+- El movimiento existe y está acotado. Ver la sección propia.
+- `prefers-reduced-motion` tiene bloque completo, al final del archivo: el orden importa, porque una media query no suma especificidad y declararla antes pierde contra las reglas posteriores.
+- `:focus-visible` existe en las dos familias de superficie, con `outline` y nunca `box-shadow`, que reintroduciría sombras por la puerta de atrás.
+- Ningún texto visible baja de 4.5:1. El verde claro sobre cremita daba 3.80:1 a tamaño pequeño y pasó a verde profundo en siete selectores.

@@ -6,7 +6,7 @@ import { languageAlternates } from "@/lib/i18n";
 
 const title = "Tulipán 58 · Specialty coffee in Gran Santa Fe, Mérida";
 const description =
-  "Specialty coffee shop in Gran Santa Fe, Caucel, Mérida. We roast our own beans. Wednesday to Saturday 7:00 to 11:30, Sunday 8:00 to 12:00.";
+  "Specialty coffee shop in Gran Santa Fe, Caucel, Mérida. Veracruz-origin beans, roasted by partner roasters in Mérida and Veracruz. Wednesday to Saturday 7:00 to 11:30, Sunday 8:00 to 12:00.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
