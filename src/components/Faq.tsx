@@ -1,4 +1,7 @@
 import type { FaqItem } from "@/sanity/queries";
+import type { Lang } from "@/types/content";
+import { l } from "@/types/content";
+import { UI } from "@/lib/i18n";
 
 /**
  * Preguntas frecuentes, visibles y marcadas.
@@ -11,7 +14,7 @@ import type { FaqItem } from "@/sanity/queries";
  * si el marcado se queda sin el texto visible, es marcar lo que no se
  * muestra.
  */
-export default function Faq({ items }: { items: FaqItem[] }) {
+export default function Faq({ items, lang }: { items: FaqItem[]; lang: Lang }) {
   if (items.length === 0) return null;
 
   const jsonLd = {
@@ -19,23 +22,23 @@ export default function Faq({ items }: { items: FaqItem[] }) {
     "@type": "FAQPage",
     mainEntity: items.map((f) => ({
       "@type": "Question",
-      name: f.question_es,
-      acceptedAnswer: { "@type": "Answer", text: f.answer_es },
+      name: l(f, "question", lang),
+      acceptedAnswer: { "@type": "Answer", text: l(f, "answer", lang) },
     })),
   };
 
   return (
-    <section className="faq" aria-label="Preguntas frecuentes">
+    <section className="faq" aria-label={UI[lang].preguntas}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h2 className="page-subtitle">Preguntas frecuentes</h2>
+      <h2 className="page-subtitle">{UI[lang].preguntas}</h2>
       <div className="faq-list">
         {items.map((f, i) => (
           <details key={i} className="faq-item">
-            <summary className="faq-question">{f.question_es}</summary>
-            <p className="faq-answer">{f.answer_es}</p>
+            <summary className="faq-question">{l(f, "question", lang)}</summary>
+            <p className="faq-answer">{l(f, "answer", lang)}</p>
           </details>
         ))}
       </div>

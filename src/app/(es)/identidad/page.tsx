@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import { IdentidadBody } from "@/components/pages/IdentidadBody";
+import { getPageContent } from "@/sanity/queries";
+import { languageAlternates } from "@/lib/i18n";
+
+const SLUG = "identidad" as const;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageContent(SLUG).catch(() => null);
+  if (!page) return {};
+  const title = page.metaTitle_es ?? page.metaTitle_es;
+  const description = page.metaDescription_es ?? page.metaDescription_es;
+  return {
+    title,
+    description,
+    alternates: {
+      ...languageAlternates(SLUG),
+      canonical: "/identidad",
+    },
+    openGraph: { title, description, url: "/identidad", type: "website" },
+  };
+}
+
+export default function Page() {
+  return <IdentidadBody lang="es" />;
+}

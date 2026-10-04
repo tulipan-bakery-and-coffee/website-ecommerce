@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import type { Lang, PrivacyContent, SiteContent } from "@/types/content";
 import Nav from "./Nav";
 import Ticker from "./Ticker";
@@ -23,6 +20,8 @@ interface HomePageProps {
   cateringBanner_en?: string;
   heroImageUrl?: string;
   aboutImageUrl?: string;
+  /** Viene de la ruta, no de un estado: /es es la raiz, /en cuelga. */
+  lang: Lang;
 }
 
 export default function HomePage({
@@ -33,17 +32,9 @@ export default function HomePage({
   cateringBanner_en = "catering & events · two weeks ahead · write to us",
   heroImageUrl,
   aboutImageUrl,
+  lang,
 }: HomePageProps) {
-  const [lang, setLang] = useState<Lang>("es");
-
   const bannerText = lang === "es" ? cateringBanner_es : cateringBanner_en;
-
-  // El <html lang> se renderiza en el servidor y no sabe del toggle. Sin
-  // esto, un lector de pantalla en modo ingles anuncia el contenido
-  // ingles con pronunciacion espanola.
-  useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
 
   return (
     <>
@@ -51,7 +42,7 @@ export default function HomePage({
       <a className="skip-link" href="#contenido">
         {lang === "es" ? "Saltar al contenido" : "Skip to content"}
       </a>
-      <Nav lang={lang} setLang={setLang} t={content.nav} />
+      <Nav lang={lang} t={content.nav} slug="" />
       <Ticker text={bannerText} />
       <main id="contenido" tabIndex={-1}>
         <Hero t={content.hero} lang={lang} imageUrl={heroImageUrl} />
@@ -62,7 +53,7 @@ export default function HomePage({
         <Statement t={content.statement} lang={lang} />
         <Find t={content.find} lang={lang} />
       </main>
-      <Footer t={content.footer} nav={content.nav} lang={lang} setLang={setLang} privacy={privacy} />
+      <Footer t={content.footer} nav={content.nav} lang={lang} privacy={privacy} slug="" />
     </>
   );
 }
