@@ -68,9 +68,10 @@ export default function Nav({ lang, setLang, t }: NavProps) {
           </a>
 
           <button
-            className="nav-hamburger"
+            className={`nav-hamburger ${mobileOpen ? "nav-hamburger--open" : ""}`}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
             data-umami-event="nav-mobile-menu-toggle"
           >
             <span className="nav-hamburger-line" />
