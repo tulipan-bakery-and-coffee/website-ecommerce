@@ -27,6 +27,8 @@ export const fallbackContent: SiteContent = {
     ctaPrimary_en: "see menu",
     ctaSecondary_es: "como llegar",
     ctaSecondary_en: "directions",
+    ctaTertiary_es: "¿Evento? Barra móvil",
+    ctaTertiary_en: "Hosting something? Mobile bar",
     photoLabel_es: "foto: preparacion en barra",
     photoLabel_en: "photo: bar preparation",
   },
@@ -47,7 +49,7 @@ export const fallbackContent: SiteContent = {
     pull_en: "We move. We pause. We are community.",
     stats: [
       { number: "58", label_es: "la calle que nos nombra", label_en: "the street that named us" },
-      { number: "7:30", label_es: "abrimos, de lunes a sabado", label_en: "we open, mon-sat" },
+      { number: "7:00", label_es: "abrimos, de miércoles a sábado", label_en: "we open, wed to sat" },
       { number: "24 h", label_es: "reposo del cold brew", label_en: "cold brew rest time" },
     ],
   },

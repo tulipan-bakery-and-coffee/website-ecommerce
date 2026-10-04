@@ -40,6 +40,15 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
             <a href="#find" className="btn btn-ghost" data-umami-event="hero-cta-como-llegar">
               {l(t, "ctaSecondary", lang)}
             </a>
+            {/* Tercer nivel en texto plano: el organizador de evento no
+                tenia ninguna superficie en el primer pantallazo, y es la
+                linea de mayor ticket. Un tercer boton relleno seria peor
+                que el problema. */}
+            {l(t, "ctaTertiary", lang) ? (
+              <a href="#events" className="link-tertiary" data-umami-event="hero-cta-eventos">
+                {l(t, "ctaTertiary", lang)}
+              </a>
+            ) : null}
           </Reveal>
         </div>
 

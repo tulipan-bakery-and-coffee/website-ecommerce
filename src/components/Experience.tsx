@@ -14,12 +14,18 @@ export default function Experience({ t, lang }: ExperienceProps) {
       <div className="container">
         {/* ── Section head ─────────────────────────────────────── */}
         <Reveal className="section-head">
-          <p className="eyebrow">{l(t, "eyebrow", lang)}</p>
           <h2 className="section-head-title">{l(t, "title", lang)}</h2>
         </Reveal>
 
         {/* ── Cards ───────────────────────────────────────────── */}
-        <div className="exp-grid">
+        {/* Scroller enfocable: sin tabIndex no hay forma de recorrerlo
+            con teclado, y la cinta se vuelve inalcanzable. */}
+        <div
+          className="exp-grid"
+          tabIndex={0}
+          role="group"
+          aria-label={lang === "es" ? "Momentos del día" : "Moments of the day"}
+        >
           {t.cards
             .sort((a, b) => a.order - b.order)
             .map((card, i) => (

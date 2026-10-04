@@ -25,6 +25,8 @@ export interface HeroSection {
   ctaPrimary_en: string;
   ctaSecondary_es: string;
   ctaSecondary_en: string;
+  ctaTertiary_es?: string;
+  ctaTertiary_en?: string;
   photoLabel_es: string;
   photoLabel_en: string;
   heroImage: SanityImage;
@@ -166,6 +168,7 @@ const heroSectionQuery = `*[_type == "heroSection"][0]{
   foot_es, foot_en,
   ctaPrimary_es, ctaPrimary_en,
   ctaSecondary_es, ctaSecondary_en,
+  ctaTertiary_es, ctaTertiary_en,
   photoLabel_es, photoLabel_en,
   heroImage
 }`;

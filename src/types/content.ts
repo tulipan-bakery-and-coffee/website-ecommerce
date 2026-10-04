@@ -39,6 +39,8 @@ export interface HeroContent {
   ctaPrimary_en: string;
   ctaSecondary_es: string;
   ctaSecondary_en: string;
+  ctaTertiary_es?: string;
+  ctaTertiary_en?: string;
   photoLabel_es: string;
   photoLabel_en: string;
 }

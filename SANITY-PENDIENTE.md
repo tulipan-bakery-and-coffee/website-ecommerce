@@ -51,6 +51,43 @@ Si el 7:30 es el correcto y el que está mal es el horario de la sección Find, 
 
 ---
 
+## 4. About Section → las tres cifras
+
+Dos de las tres están mal. La del medio es el tercer sitio del proyecto donde aparece un horario incorrecto.
+
+| Cifra | Etiqueta publicada hoy | Qué hacer |
+|---|---|---|
+| `58` | "Un número profesional" | Texto de relleno. Reemplazar por `la calle que nos nombra` / `the street that named us` |
+| `7:30` | "abrimos, de lunes a sábado" | **Falso.** Debe decir `7:00` con etiqueta `abrimos, de miércoles a sábado` / `we open, wed to sat` |
+| `24 h` | "reposo del cold brew" | Correcta, coincide con el menú. No tocar |
+
+El respaldo local ya quedó corregido, pero Sanity gana: hasta publicar esto, el sitio sigue diciendo que abre a las 7:30 de lunes a sábado.
+
+---
+
+## 5. Hero Section → CTA Tertiary (campo nuevo)
+
+El esquema `heroSection` tiene dos campos nuevos, `ctaTertiary_es` y `ctaTertiary_en`. Son un enlace de texto plano hacia `#events`, no un tercer botón.
+
+Existen porque el organizador de evento no tenía ninguna superficie en el primer pantallazo, y `PRODUCT.md` lo nombra como la línea de mayor ticket.
+
+| Campo | Valor sugerido |
+|---|---|
+| `CTA Tertiary (ES)` | `¿Evento? Barra móvil` |
+| `CTA Tertiary (EN)` | `Hosting something? Mobile bar` |
+
+Mientras estén vacíos el enlace no se renderiza, así que no hay prisa ni riesgo. Pero tampoco aparece.
+
+---
+
+## 6. Voz mezclada en los eyebrows
+
+Los eyebrows que quedan están en dos voces: `Sobre nosotros` y `Encuéntranos` capitalizados, `menu` en minúsculas. Unificar a capitalización normal con acentos, según la decisión de abajo.
+
+Los de Experience y Events ya no se renderizan, pero sus campos siguen existiendo en Sanity. Dejarlos o vaciarlos, da igual: el componente ya no los lee.
+
+---
+
 ## Decisión de voz, para todo lo que se escriba de aquí en adelante
 
 Capitalización normal con acentos: `Encuéntranos`, `Dirección`, `El café que camina contigo.` No minúsculas sin acentos.

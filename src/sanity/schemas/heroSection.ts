@@ -19,6 +19,8 @@ export default defineType({
     defineField({ name: "ctaPrimary_en", title: "CTA Primary (EN)", type: "string" }),
     defineField({ name: "ctaSecondary_es", title: "CTA Secondary (ES)", type: "string" }),
     defineField({ name: "ctaSecondary_en", title: "CTA Secondary (EN)", type: "string" }),
+    defineField({ name: "ctaTertiary_es", title: "CTA Tertiary (ES)", type: "string", description: "Enlace de texto hacia eventos. Vacio = no se muestra." }),
+    defineField({ name: "ctaTertiary_en", title: "CTA Tertiary (EN)", type: "string", description: "Text link to events. Empty = hidden." }),
     defineField({ name: "photoLabel_es", title: "Photo Label (ES)", type: "string" }),
     defineField({ name: "photoLabel_en", title: "Photo Label (EN)", type: "string" }),
     defineField({
