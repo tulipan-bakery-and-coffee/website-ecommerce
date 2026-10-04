@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { hrefFor, type Slug } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site";
 import PrivacyNotice from "./PrivacyNotice";
 import type { Lang, FooterContent, NavContent, PrivacyContent } from "@/types/content";
 import { l } from "@/types/content";
@@ -74,7 +75,10 @@ export default function Footer({ t, nav, lang, privacy, slug }: FooterProps) {
           <h2 className="footer-col-title">{l(t, "linksLabel", lang)}</h2>
           <ul className="footer-list">
             <li>
-              <a href="https://tulipan.mx" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-link-website">
+              {/* Al host canonico, no al apex. El apex redirige, y enlazarlo
+                  manda a Google una senal hacia una URL que no es la buena:
+                  es como eligio el canonical equivocado. */}
+              <a href={SITE_URL} className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-link-website">
                 tulipan.mx
               </a>
             </li>
