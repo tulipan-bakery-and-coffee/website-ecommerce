@@ -35,9 +35,12 @@ export default function HomePage({
 
   return (
     <>
+      <a className="skip-link" href="#contenido">
+        {lang === "es" ? "Saltar al contenido" : "Skip to content"}
+      </a>
       <Nav lang={lang} setLang={setLang} t={content.nav} />
       <Ticker text={bannerText} />
-      <main>
+      <main id="contenido" tabIndex={-1}>
         <Hero t={content.hero} lang={lang} imageUrl={heroImageUrl} />
         <About t={content.about} lang={lang} imageUrl={aboutImageUrl} />
         <Menu t={content.menu} lang={lang} />

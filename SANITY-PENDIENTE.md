@@ -8,7 +8,11 @@ Entrar a `tulipan.mx/studio` y pegar estos valores. Después borrar este archivo
 
 ## 1. Find Us Section → Title
 
-Los campos `title_es` y `title_en` están vacíos. El sitio cae al respaldo local y publica **"calle tulipan 58."** como titular — una calle que no es el domicilio.
+Los campos `title_es` y `title_en` están vacíos en Sanity.
+
+**Corrección respecto a lo que decía antes este archivo:** el sitio *no* cae al respaldo. `src/app/page.tsx` hace `sanityData.findSection ?? fallbackContent.find`, y el documento de Sanity existe, así que reemplaza el objeto entero. El título sale **vacío**, no con el texto del respaldo. Verificado en el render: `<h2 class="section-head-title"></h2>`.
+
+La sección más consecuente del sitio tenía eyebrow y después nada. El código ya no renderiza un encabezado vacío, pero eso solo evita el defecto de accesibilidad: la sección sigue sin titular hasta que publiques estos campos.
 
 | Campo | Valor |
 |---|---|

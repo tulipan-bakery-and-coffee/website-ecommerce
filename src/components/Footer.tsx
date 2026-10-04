@@ -28,7 +28,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-col-title">{l(t, "navLabel", lang)}</h4>
+          <h2 className="footer-col-title">{l(t, "navLabel", lang)}</h2>
           <ul className="footer-list">
             {nav.links.map((link) => (
               <li key={link.key}>
@@ -41,7 +41,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-col-title">{l(t, "socialLabel", lang)}</h4>
+          <h2 className="footer-col-title">{l(t, "socialLabel", lang)}</h2>
           <ul className="footer-list">
             <li>
               <a href="https://instagram.com/tulipan58mid" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-instagram">
@@ -67,7 +67,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-col-title">{l(t, "linksLabel", lang)}</h4>
+          <h2 className="footer-col-title">{l(t, "linksLabel", lang)}</h2>
           <ul className="footer-list">
             <li>
               <a href="https://tulipan.mx" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-link-website">
