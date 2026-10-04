@@ -23,6 +23,21 @@ El punto final es parte del gesto tipográfico de los titulares de sección; con
 
 ---
 
+## 2. Una intención, dos etiquetas
+
+El nav dice **"Encuéntranos"** y el Hero dice **"Cómo llegar"** para la misma intención y el mismo destino (`#find`). Las dos cadenas viven en Sanity, así que la unificación no se puede hacer desde el código.
+
+| Documento | Campo | Dice hoy |
+|---|---|---|
+| `siteSettings` → navLinks (key `find`) | `Label (ES)` / `Label (EN)` | Encuéntranos / Find us |
+| `heroSection` | `CTA Secondary (ES)` / `(EN)` | Cómo llegar / Directions |
+
+Elegir una pareja y usarla en los dos sitios. "Cómo llegar" es más accionable para alguien que está decidiendo si maneja; "Encuéntranos" encaja mejor como etiqueta de sección. No las mezcles.
+
+No cambies el `data-umami-event`: la serie de analítica se llama `hero-cta-como-llegar` y renombrarla corta el histórico.
+
+---
+
 ## 2. Hero Section → Foot
 
 Dice que abre a las 7:30 mientras la sección Find publica 7:00. Dos partes de la misma página se contradicen.

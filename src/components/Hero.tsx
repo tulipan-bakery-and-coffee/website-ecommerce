@@ -37,7 +37,7 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
             <a href="#menu" className="btn btn-bordo" data-umami-event="hero-cta-ver-menu">
               {l(t, "ctaPrimary", lang)}
             </a>
-            <a href="#about" className="btn btn-ghost" data-umami-event="hero-cta-como-llegar">
+            <a href="#find" className="btn btn-ghost" data-umami-event="hero-cta-como-llegar">
               {l(t, "ctaSecondary", lang)}
             </a>
           </Reveal>
