@@ -91,10 +91,13 @@ Las etiquetas de café son el artefacto de marca más desarrollado. Lo que estab
 
 Dos piezas de Canva quedaron obsoletas y habría que corregirlas en el origen: el teléfono `999 361 9285` de la tarjeta de presentación, que no es el canal vigente, y el horario del flyer y la tarjeta de evento.
 
-### Lo que sigue roto en producción
+### Estado en producción
 
-1. **`findSection.title_es` y `title_en` están vacíos en Sanity.** El sitio *no* cae al respaldo: `page.tsx` hace `sanityData.findSection ?? fallbackContent.find`, y como el documento existe reemplaza el objeto entero. El titular salía **vacío**. El componente ya no emite un encabezado sin texto, pero la sección sigue sin titular hasta publicarlo.
-2. **`heroSection.foot` dice "abierto desde las 7:30"** mientras el horario publicado dice 7:00. Dos partes de la misma página se contradicen.
+Resuelto el 2026-10-04. Los campos que faltaban se publicaron en Sanity desde el MCP: el titular de Find, el horario del Hero, las tres cifras de About, las coordenadas, el horario legible por máquina, el CTA terciario y el documento del aviso de privacidad. `SANITY-PENDIENTE.md` se eliminó porque ya no tenía contenido.
+
+La dirección publicada ahora nombra las tres capas: `C. 11C Norte, Gran Santa Fe, Caucel, Mérida, Yuc.`
+
+Queda una decisión de copy sin tomar: el nav dice "Encuéntranos" y el Hero "Cómo llegar" para la misma intención y el mismo destino. Las dos cadenas viven en Sanity. Elegir una, o aceptar por escrito que son dos registros distintos a propósito.
 
 El mapa decorativo en SVG de `src/components/Find.tsx` no es un problema activo: Sanity ya tiene `mapEmbedUrl` con el embed real de Google Maps y el componente prefiere el iframe, así que ese SVG no se renderiza en producción. Sigue siendo deuda — si alguien borra el embed, vuelve a aparecer una retícula del centro de Mérida con un pin marcado "58".
 
