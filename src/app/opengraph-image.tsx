@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Tulipán 58 - Café de especialidad en Gran Santa Fe, Mérida";
+  "Tulipán 58 - Café de especialidad en Gran Santa Fe, Caucel, Mérida";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -82,7 +82,7 @@ export default async function Image() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <div style={{ display: "flex", ...label }}>Dónde</div>
             <div style={{ display: "flex", ...value }}>
-              Gran Santa Fe, Mérida
+              Gran Santa Fe, Caucel
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>

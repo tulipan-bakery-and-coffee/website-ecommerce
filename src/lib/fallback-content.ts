@@ -134,11 +134,11 @@ export const fallbackContent: SiteContent = {
   find: {
     eyebrow_es: "Encuéntranos",
     eyebrow_en: "Find us",
-    title_es: "Gran Santa Fe, Mérida.",
-    title_en: "Gran Santa Fe, Mérida.",
+    title_es: "Gran Santa Fe, Caucel.",
+    title_en: "Gran Santa Fe, Caucel.",
     addressLabel_es: "Dirección",
     addressLabel_en: "Address",
-    address: "C. 11C Norte, Gran Santa Fe, Mérida, Yuc.",
+    address: "C. 11C Norte, Gran Santa Fe, Caucel, Mérida, Yuc.",
     hoursLabel_es: "Horario",
     hoursLabel_en: "Hours",
     hours1_es: "Mie — Sáb · 7:00 a 11:30",
@@ -157,6 +157,12 @@ export const fallbackContent: SiteContent = {
     mapLabel_es: "Mapa · Tulipán 58",
     mapLabel_en: "Map · Tulipán 58",
     mapsUrl: "https://maps.app.goo.gl/ELxWYTt9cCSeqwJv9",
+    geoLat: 21.0246531,
+    geoLng: -89.686376,
+    openingHours: [
+      { days: ["Wednesday", "Thursday", "Friday", "Saturday"], opens: "07:00", closes: "11:30" },
+      { days: ["Sunday"], opens: "08:00", closes: "12:00" },
+    ],
   },
   footer: {
     tagline_es: "el cafe que camina contigo.",

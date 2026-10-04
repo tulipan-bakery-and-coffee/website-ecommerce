@@ -26,7 +26,7 @@ export default function Events({ t, lang }: EventsProps) {
                 <li key={i}>{l(bullet, "text", lang)}</li>
               ))}
             </ul>
-            <a href="#find" className="btn btn-verde" data-umami-event="events-cta-contact">
+            <a href="/eventos" className="btn btn-verde" data-umami-event="events-cta-contact">
               {l(t, "cta", lang)}
             </a>
           </Reveal>

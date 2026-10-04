@@ -8,6 +8,10 @@ import statementSection from "./statementSection";
 import findSection from "./findSection";
 import footerSection from "./footerSection";
 import privacyNotice from "./privacyNotice";
+import pageContent from "./pageContent";
+import coffeeProduct from "./coffeeProduct";
+import pastryItem from "./pastryItem";
+import faqItem from "./faqItem";
 
 export const schemaTypes = [
   siteSettings,
@@ -20,4 +24,8 @@ export const schemaTypes = [
   findSection,
   footerSection,
   privacyNotice,
+  pageContent,
+  coffeeProduct,
+  pastryItem,
+  faqItem,
 ];

@@ -48,7 +48,7 @@ export default async function NotFound() {
           rel="noopener noreferrer"
           data-umami-event="404-mapa"
         >
-          Gran Santa Fe
+          Gran Santa Fe, Caucel
         </a>
         .
       </h1>

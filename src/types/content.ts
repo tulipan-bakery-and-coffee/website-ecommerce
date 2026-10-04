@@ -182,6 +182,9 @@ export interface FindContent {
   mapLabel_es: string;
   mapLabel_en: string;
   mapsUrl: string;
+  geoLat?: number;
+  geoLng?: number;
+  openingHours?: { days: string[]; opens: string; closes: string }[];
   mapEmbedUrl?: string;
 }
 

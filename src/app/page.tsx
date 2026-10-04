@@ -3,6 +3,8 @@ import { fallbackContent, fallbackPrivacy } from "@/lib/fallback-content";
 import HomePage from "@/components/HomePage";
 import type { PrivacyContent, SiteContent } from "@/types/content";
 import { urlFor } from "@/sanity/image";
+import { cafeJsonLd } from "@/lib/structured-data";
+import { SITE_URL } from "@/lib/site";
 
 export const revalidate = 60;
 
@@ -79,7 +81,21 @@ export default async function Page() {
     ? urlFor(sanityData.aboutSection.aboutImage).width(800).quality(80).url()
     : undefined;
 
+  // Se deriva del mismo contenido que renderiza la pagina, no de una
+  // segunda copia. El horario ya llego a decir tres cosas distintas en
+  // tres sitios por no hacer esto.
+  const jsonLd = cafeJsonLd({
+    find: content.find,
+    menu: content.menu,
+    siteUrl: SITE_URL,
+  });
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <HomePage
       content={content}
       privacy={privacy}
@@ -89,5 +105,6 @@ export default async function Page() {
       heroImageUrl={heroImageUrl}
       aboutImageUrl={aboutImageUrl}
     />
+    </>
   );
 }

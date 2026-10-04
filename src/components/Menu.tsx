@@ -88,7 +88,7 @@ export default function Menu({ t, lang }: MenuProps) {
           <p className="menu-note">
             <em>{l(t, "note", lang)}</em>
           </p>
-          <a href="#find" className="btn btn-ghost menu-cta" data-umami-event="menu-cta-full-menu">
+          <a href="/menu" className="btn btn-ghost menu-cta" data-umami-event="menu-cta-full-menu">
             {l(t, "cta", lang)}
           </a>
         </Reveal>

@@ -143,7 +143,7 @@ Paleta de tierra tostada completa, con un solo frío deliberado. Ningún color e
 - **Bordo Pausar** (`#632E2E`): el acento de la marca. Viste la sección Menu completa, el visual del Hero, el visual de Events, el pin del mapa y los botones primarios. Es el color que dice "esto es Tulipán".
 
 ### Secondary
-- **Verde Caminante** (`#787C41`): el verde oliva del isotipo. Viste la sección Statement completa y la barra del Ticker, y aparece en pequeño como color de etiqueta en `.info-label` y `.stat-label`. Es el único color que trabaja a dos escalas opuestas: superficie completa y texto de 10px.
+- **Verde Caminante** (`#787C41`): el verde oliva del isotipo. Viste la sección Statement completa y aparece en pequeño como color de etiqueta en `.info-label` y `.stat-label`. Su variante profunda `#5F6234` viste la barra del Ticker y es el hover de `.btn-verde`: cremita sobre el verde claro da 3.80:1 a 11px, por debajo del mínimo AA, y sobre el profundo sube a 5.51:1. Es el único color que trabaja a dos escalas opuestas: superficie completa y texto de 10px.
 
 ### Tertiary
 - **Azul Tulipán** (`#CCDBF8`): el único frío, y el único que no viene del café. Fondo de una tarjeta de Experience y del contenedor del mapa.
@@ -300,6 +300,7 @@ Entrada por defecto de todo el contenido. `IntersectionObserver` con umbral de 0
 - **Do** colocar el isotipo recortado y por fuera del contenedor, entre 15% y 25% de opacidad, teñido al color de contraste de la superficie.
 - **Do** terminar los botones con la flecha `→` y moverla en hover. Es la firma de interacción del sistema.
 - **Do** usar `text-wrap: balance` en los titulares de sección y en cualquier texto de display de dos a tres líneas.
+- **Do** comprobar el contraste antes de bajar la opacidad de un texto. Varias etiquetas de 10px vivían entre 3.08:1 y 4.46:1 por opacidades de 0.5 y 0.55; el mínimo AA es 4.5:1 y a ese tamaño no hay excepción de texto grande.
 
 ### Don't:
 - **Don't** usar `#FFFFFF` ni un gris de sistema como fondo. El papel es cremita `#FFEDBB`.
@@ -313,6 +314,7 @@ Entrada por defecto de todo el contenido. `IntersectionObserver` con umbral de 0
 - **Don't** tratar la identidad azul marino y rosa de "Tulipán Bakery & Coffee" como referencia. Es una marca retirada que sigue viva en diseños antiguos de Canva. Ver [BRAND-BRIEF.md](BRAND-BRIEF.md).
 
 ### Deuda conocida
+- El aviso de privacidad usa `<dialog>` nativo. Debe vivir como hijo de un `<div>`, nunca de un `<p>`: `<p>` solo admite contenido de frase y meterlo dentro rompía la hidratación de React.
 - `--lh-tight`, `--lh-snug`, `--radius-lg` y `--rail` están definidos en `:root` y no los usa nadie. Son tokens muertos: usarlos o borrarlos, no ampliarlos.
 - Ninguna animación consulta `prefers-reduced-motion`.
 - El mapa decorativo en SVG de `src/components/Find.tsx` dibuja calles del centro de Mérida, que no es la ubicación real. Hoy queda oculto porque Sanity entrega un `mapEmbedUrl`.
