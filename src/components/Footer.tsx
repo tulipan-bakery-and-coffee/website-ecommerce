@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { hrefFor, type Slug } from "@/lib/i18n";
 import PrivacyNotice from "./PrivacyNotice";
 import type { Lang, FooterContent, NavContent, PrivacyContent } from "@/types/content";
 import { l } from "@/types/content";
@@ -7,11 +9,11 @@ interface FooterProps {
   t: FooterContent;
   nav: NavContent;
   lang: Lang;
-  setLang: (lang: Lang) => void;
   privacy: PrivacyContent;
+  slug: Slug;
 }
 
-export default function Footer({ t, nav, lang, setLang, privacy }: FooterProps) {
+export default function Footer({ t, nav, lang, privacy, slug }: FooterProps) {
   return (
     <footer className="footer">
       <div className="footer-top container">
@@ -34,7 +36,7 @@ export default function Footer({ t, nav, lang, setLang, privacy }: FooterProps) 
           <ul className="footer-list">
             {nav.links.map((link) => (
               <li key={link.key}>
-                <a href={`#${link.key}`} className="footer-link" data-umami-event={`footer-nav-${link.key}`}>
+                <a href={`${hrefFor(slug, lang)}#${link.key}`.replace("/#", "/#")} className="footer-link" data-umami-event={`footer-nav-${link.key}`}>
                   {l(link, "label", lang)}
                 </a>
               </li>
@@ -77,22 +79,24 @@ export default function Footer({ t, nav, lang, setLang, privacy }: FooterProps) 
               </a>
             </li>
             <li>
-              <button
+              <Link
+                href={hrefFor(slug, "es")}
                 className={`footer-lang-btn ${lang === "es" ? "footer-lang-btn--active" : ""}`}
-                onClick={() => setLang("es")}
+                hrefLang="es-MX"
                 data-umami-event="footer-lang-switch-es"
               >
-                Espanol
-              </button>
+                Español
+              </Link>
             </li>
             <li>
-              <button
+              <Link
+                href={hrefFor(slug, "en")}
                 className={`footer-lang-btn ${lang === "en" ? "footer-lang-btn--active" : ""}`}
-                onClick={() => setLang("en")}
+                hrefLang="en"
                 data-umami-event="footer-lang-switch-en"
               >
                 English
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

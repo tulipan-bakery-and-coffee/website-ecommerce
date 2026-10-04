@@ -1,8 +1,11 @@
 import { defineType, defineField } from "sanity";
 
 /**
- * Los cafes de tueste propio. Es lo que PRODUCT.md llama el argumento
- * que un competidor no podria copiar honestamente: origen trazable.
+ * Los cafes que se sirven. El tueste NO es propio: lo hacen casas
+ * tostadoras de Merida y Veracruz con las que hay relacion directa.
+ *
+ * El argumento no es tostar, es elegir el grano y declarar su origen.
+ * Ver PRODUCT.md. Nunca escribir "tueste propio".
  *
  * Los campos replican la ficha de la bolsa a proposito. El dato
  * concreto es lo que se puede citar; "el mejor cafe de Merida" no.

@@ -16,7 +16,9 @@ El cliente recurrente que vuelve solo por horario o dirección no se confirmó c
 
 ## Product Purpose
 
-Tulipán 58 es una cafetería de especialidad en Gran Santa Fe, Caucel, Mérida, que tuesta su propio café. También hornea su propia repostería y opera una barra de café móvil para eventos.
+Tulipán 58 es una cafetería de especialidad en Gran Santa Fe, Caucel, Mérida. **No tuesta: trabaja con casas tostadoras de Mérida y Veracruz** para el tueste del grano que maneja. También hornea su propia repostería y opera una barra de café móvil para eventos.
+
+Esto importa y se confundió una vez: el argumento no es tostar, es **elegir el grano y declarar su origen**. Nunca escribir que el tueste es propio.
 
 **La repostería es acompañamiento del café, no línea de negocio.** Es lo contrario de la cafetería tradicional, donde la pastelería tira del ticket. Aquí el café manda y las galletas y el brownie existen para acompañarlo. Cualquier decisión de contenido, jerarquía visual o posicionamiento debe reflejar ese orden.
 
@@ -26,7 +28,7 @@ El sitio es una vitrina: no vende en línea y no está planeado que lo haga. Su 
 
 "El café que camina contigo." Tulipán 58 no se posiciona como destino sino como acompañante: el café que tomas de camino, de vuelta o en la pausa. Esa idea está escrita en el copy del sitio y en el empaque, y es anterior a cualquier decisión de diseño.
 
-Lo que un competidor no podría copiar honestamente: tueste propio con origen trazable y declarado en la etiqueta. Dos perfiles publicados — **Amanecer** (lavado, La Laja, Veracruz; tueste medio-oscuro; para espresso) y **Pausa** (honey, Xico, Veracruz; tueste medio; para filtrados) — con proceso, región, nivel de tueste y fecha de tueste impresos en cada bolsa. La ficha técnica no es decoración: es el argumento.
+Lo que un competidor no podría copiar honestamente: la selección de grano con origen trazable y declarado en la etiqueta, tostado por casas de Mérida y Veracruz con las que hay relación directa. Dos perfiles publicados — **Amanecer** (lavado, La Laja, Veracruz; tueste medio-oscuro; para espresso) y **Pausa** (honey, Xico, Veracruz; tueste medio; para filtrados) — con proceso, región, nivel de tueste y fecha de tueste impresos en cada bolsa. La ficha técnica no es decoración: es el argumento.
 
 ## Operating Context
 

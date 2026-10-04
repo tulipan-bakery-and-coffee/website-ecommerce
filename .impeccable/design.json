@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-03T00:00:00.000Z",
+  "generatedAt": "2026-10-04T21:59:19.368214Z",
   "title": "Design System: Tulipán 58",
   "extensions": {
     "colorMeta": {
@@ -8,37 +8,106 @@
         "role": "neutral",
         "displayName": "Cremita Café",
         "canonical": "#FFEDBB",
-        "tonalRamp": ["#2E2910", "#4D4420", "#6E6231", "#908045", "#B4A262", "#D4C48C", "#FFEDBB", "#FFF8E2"]
+        "tonalRamp": [
+          "#2E2910",
+          "#4D4420",
+          "#6E6231",
+          "#908045",
+          "#B4A262",
+          "#D4C48C",
+          "#FFEDBB",
+          "#FFF8E2"
+        ]
       },
       "roso-pausar": {
         "role": "primary",
         "displayName": "Bordo Pausar",
         "canonical": "#632E2E",
-        "tonalRamp": ["#1E0D0D", "#331717", "#4E2424", "#632E2E", "#8A4545", "#B06D6D", "#D5A3A3", "#F0DCDC"]
+        "tonalRamp": [
+          "#1E0D0D",
+          "#331717",
+          "#4E2424",
+          "#632E2E",
+          "#8A4545",
+          "#B06D6D",
+          "#D5A3A3",
+          "#F0DCDC"
+        ]
       },
       "verde-caminante": {
         "role": "secondary",
         "displayName": "Verde Caminante",
         "canonical": "#787C41",
-        "tonalRamp": ["#1D1E0F", "#32341B", "#4B4D28", "#5F6234", "#787C41", "#9BA05C", "#C2C68F", "#E6E8CB"]
+        "tonalRamp": [
+          "#1D1E0F",
+          "#32341B",
+          "#4B4D28",
+          "#5F6234",
+          "#787C41",
+          "#9BA05C",
+          "#C2C68F",
+          "#E6E8CB"
+        ]
       },
       "cafe-quemado": {
         "role": "neutral",
         "displayName": "Café Quemado",
         "canonical": "#333333",
-        "tonalRamp": ["#0D0D0D", "#1A1A1A", "#262626", "#333333", "#5A5A5A", "#8A8A8A", "#BDBDBD", "#E8E8E8"]
+        "tonalRamp": [
+          "#0D0D0D",
+          "#1A1A1A",
+          "#262626",
+          "#333333",
+          "#5A5A5A",
+          "#8A8A8A",
+          "#BDBDBD",
+          "#E8E8E8"
+        ]
       },
       "tulipan": {
         "role": "tertiary",
         "displayName": "Azul Tulipán",
         "canonical": "#CCDBF8",
-        "tonalRamp": ["#101929", "#1C2B45", "#2C4269", "#3F5E92", "#6485BD", "#99B4E0", "#CCDBF8", "#EAF1FD"]
+        "tonalRamp": [
+          "#101929",
+          "#1C2B45",
+          "#2C4269",
+          "#3F5E92",
+          "#6485BD",
+          "#99B4E0",
+          "#CCDBF8",
+          "#EAF1FD"
+        ]
       },
       "gris-apunte": {
         "role": "neutral",
         "displayName": "Gris Apunte",
         "canonical": "#5A5A5A",
-        "tonalRamp": ["#171717", "#262626", "#3A3A3A", "#5A5A5A", "#7E7E7E", "#A5A5A5", "#CCCCCC", "#EDEDED"]
+        "tonalRamp": [
+          "#171717",
+          "#262626",
+          "#3A3A3A",
+          "#5A5A5A",
+          "#7E7E7E",
+          "#A5A5A5",
+          "#CCCCCC",
+          "#EDEDED"
+        ]
+      },
+      "verde-caminante-deep": {
+        "role": "secondary",
+        "displayName": "Verde Caminante Profundo",
+        "canonical": "#5F6234",
+        "tonalRamp": [
+          "#15160B",
+          "#242616",
+          "#373A21",
+          "#4B4D28",
+          "#5F6234",
+          "#7C8046",
+          "#A9AE72",
+          "#D7DAB4"
+        ]
       }
     },
     "typographyMeta": {
@@ -46,10 +115,22 @@
         "displayName": "Display",
         "purpose": "Titular del Hero. La variante del Statement empuja a clamp(56px, 10vw, 160px) con lh 0.9 y ls -0.02em."
       },
-      "headline": { "displayName": "Headline", "purpose": "Titulares de sección, con text-wrap: balance." },
-      "title": { "displayName": "Title", "purpose": "Nombre de platillo, valor de dato, wordmark de nav y footer." },
-      "body": { "displayName": "Body", "purpose": "Párrafos de About y Events. Baja a 15px en bloques de datos y 12-13px con peso 300 en descripciones." },
-      "label": { "displayName": "Label", "purpose": "Eyebrows, metadatos, enlaces de nav, texto de botón, filtros. La clase de tipo más frecuente del sitio." }
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titulares de sección, con text-wrap: balance."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nombre de platillo, valor de dato, wordmark de nav y footer."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Párrafos de About y Events. Baja a 15px en bloques de datos y 12-13px con peso 300 en descripciones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, metadatos, enlaces de nav, texto de botón, filtros. La clase de tipo más frecuente del sitio."
+      }
     },
     "shadows": [
       {
@@ -59,19 +140,70 @@
       }
     ],
     "motion": [
-      { "name": "ease-salida", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Easing de carácter del sistema: subrayado del nav (260ms) y lift de tarjeta (380ms)." },
-      { "name": "dur-control", "value": "240ms", "purpose": "Chips de filtro, interruptor de idioma, flecha de fila de menú." },
-      { "name": "dur-boton", "value": "250ms", "purpose": "Color y desplazamiento de botón, avance de la flecha." },
-      { "name": "dur-superficie", "value": "280ms", "purpose": "Velo de hover sobre fila de menú." },
-      { "name": "dur-lift", "value": "380ms", "purpose": "translateY(-4px) de tarjeta de Experience." },
-      { "name": "dur-reveal", "value": "700ms ease", "purpose": "Entrada por scroll: opacity 0→1 y translateY(16px)→0. Retrasos escalonados de 100/200/300/400ms." },
-      { "name": "ticker", "value": "38s linear infinite", "purpose": "Desplazamiento continuo de la cinta verde." },
-      { "name": "orbita", "value": "40s linear infinite", "purpose": "Rotación del anillo de Events." }
+      {
+        "name": "--ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Entradas y salidas. Panel movil, subrayado del nav, lift de tarjeta."
+      },
+      {
+        "name": "--ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Morph en pantalla. La hamburguesa a X: no entra ni sale, rota."
+      },
+      {
+        "name": "dur-press",
+        "value": "140ms ease-out",
+        "purpose": "scale(0.97) en botones, 0.96 en chips y toggle."
+      },
+      {
+        "name": "dur-control",
+        "value": "240ms",
+        "purpose": "Chips de filtro, toggle de idioma, flecha de fila de menu."
+      },
+      {
+        "name": "dur-panel",
+        "value": "200ms",
+        "purpose": "Panel movil, con @starting-style y transition-behavior: allow-discrete."
+      },
+      {
+        "name": "dur-swap",
+        "value": "120ms fuera + 140ms dentro",
+        "purpose": "Crossfade al filtrar la carta."
+      },
+      {
+        "name": "dur-lift",
+        "value": "380ms",
+        "purpose": "translateY(-4px) de tarjeta de Experience."
+      },
+      {
+        "name": "dur-reveal",
+        "value": "700ms ease",
+        "purpose": "Entrada por scroll, con retrasos de 100/200/300/400ms."
+      },
+      {
+        "name": "ticker",
+        "value": "38s linear infinite",
+        "purpose": "Cinta verde profundo. Se apaga bajo prefers-reduced-motion."
+      },
+      {
+        "name": "orbita",
+        "value": "40s linear infinite",
+        "purpose": "Anillo de Events. Se apaga bajo prefers-reduced-motion."
+      }
     ],
     "breakpoints": [
-      { "name": "md", "value": "900px" },
-      { "name": "sm", "value": "780px" },
-      { "name": "xs", "value": "560px" }
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "sm",
+        "value": "780px"
+      },
+      {
+        "name": "xs",
+        "value": "560px"
+      }
     ]
   },
   "components": [
@@ -146,6 +278,30 @@
       "description": "Cinta verde de ancho completo bajo el nav. Marcada aria-hidden: es ritmo, no contenido.",
       "html": "<div class=\"ds-ticker\" aria-hidden=\"true\"><div class=\"ds-ticker-track\"><span class=\"ds-ticker-item\">Café de especialidad<span class=\"ds-ticker-dot\">·</span><span>tulipan58</span><span class=\"ds-ticker-dot\">·</span></span><span class=\"ds-ticker-item\">Café de especialidad<span class=\"ds-ticker-dot\">·</span><span>tulipan58</span><span class=\"ds-ticker-dot\">·</span></span></div></div>",
       "css": ".ds-ticker { background: #787C41; color: #FFEDBB; padding: 10px 0; overflow: hidden; border-bottom: 1px solid rgba(255, 237, 187, 0.15); } .ds-ticker-track { display: flex; gap: 48px; white-space: nowrap; width: max-content; font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; animation: ds-ticker 38s linear infinite; } .ds-ticker-item { display: inline-flex; align-items: center; gap: 48px; } .ds-ticker-dot { opacity: 0.6; } @keyframes ds-ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }"
+    },
+    {
+      "name": "Ficha de Café",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "La reticula del empaque: cuatro pares etiqueta/valor separados por reglas, dentro de una tarjeta de color pleno.",
+      "html": "<article class=\"ds-coffee ds-coffee-bordo\"><h2 class=\"ds-coffee-title\">Amanecer</h2><p class=\"ds-coffee-tag\">Intenso y dulce, el espresso ideal para despertar.</p><dl class=\"ds-spec\"><dt>Proceso</dt><dd>Lavado</dd><dt>Región</dt><dd>La Laja, Veracruz</dd><dt>Nivel de tueste</dt><dd>Medio-oscuro</dd></dl></article>",
+      "css": ".ds-coffee { border-radius: 12px; padding: 32px 28px; width: 420px; background: #632E2E; color: #FFEDBB; } .ds-coffee-title { font-family: Halenoir, Georgia, serif; font-weight: 700; font-size: 40px; line-height: 1; letter-spacing: -0.015em; margin: 0; } .ds-coffee-tag { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-size: 14px; line-height: 1.55; margin: 12px 0 28px; } .ds-spec { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0 20px; } .ds-spec dt { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; padding: 12px 0; opacity: 0.8; border-top: 1px solid currentColor; } .ds-spec dd { font-family: Halenoir, Georgia, serif; font-weight: 700; font-size: 18px; margin: 0; padding: 12px 0; text-align: right; border-top: 1px solid currentColor; }"
+    },
+    {
+      "name": "Pregunta Frecuente",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "details nativo: abre sin JavaScript y el contenido queda en el DOM aunque este cerrado, que es lo que necesita un rastreador.",
+      "html": "<details class=\"ds-faq\"><summary class=\"ds-faq-q\">¿Qué días abren?</summary><p class=\"ds-faq-a\">De miércoles a sábado de 7:00 a 11:30 y domingo de 8:00 a 12:00.</p></details>",
+      "css": ".ds-faq { border-top: 1px solid rgba(51,51,51,0.15); border-bottom: 1px solid rgba(51,51,51,0.15); width: 520px; } .ds-faq-q { font-family: Halenoir, Georgia, serif; font-weight: 700; font-size: 18px; line-height: 1.3; letter-spacing: -0.01em; padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; align-items: baseline; } .ds-faq-q::-webkit-details-marker { display: none; } .ds-faq-q::after { content: '+'; font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 400; font-size: 20px; color: #5F6234; transition: transform 200ms cubic-bezier(0.77, 0, 0.175, 1); } .ds-faq[open] .ds-faq-q::after { transform: rotate(45deg); } .ds-faq-a { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 300; font-size: 14px; line-height: 1.65; max-width: 62ch; margin: 0 0 24px; }"
+    },
+    {
+      "name": "Enlace Terciario",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Tercer nivel de accion, por debajo de boton relleno y fantasma. Existe para no convertir cada accion nueva en un cuarto boton.",
+      "html": "<a class=\"ds-tertiary\" href=\"#\">¿Evento? Barra móvil</a>",
+      "css": ".ds-tertiary { display: inline-flex; align-items: center; gap: 6px; font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 400; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5F6234; border-bottom: 1px solid currentColor; padding-bottom: 2px; text-decoration: none; transition: color 240ms; } .ds-tertiary::after { content: '\u001192'; display: inline-block; transition: transform 250ms; } @media (hover: hover) and (pointer: fine) { .ds-tertiary:hover { color: #632E2E; } .ds-tertiary:hover::after { transform: translateX(4px); } }"
     }
   ],
   "narrative": {
@@ -160,23 +316,62 @@
       "El isotipo aparece recortado y a baja opacidad como textura de fondo, nunca repetido como logo"
     ],
     "rules": [
-      { "name": "La Regla del Frío Único", "body": "El azul tulipán aparece como máximo en una superficie por pantalla. Su rareza es su función: es el respiro entre tanto tono tierra. Dos usos visibles a la vez lo convierten en un cuarto color de marca, que no es.", "section": "colors" },
-      { "name": "La Regla de Una Tinta por Superficie", "body": "Cada sección se compromete a un fondo y un color de texto. No se mezclan bordo y verde dentro del mismo bloque. El cambio de paleta es el cambio de sección.", "section": "colors" },
-      { "name": "La Regla del Papel Cálido", "body": "Nunca #FFFFFF, nunca un gris de sistema como fondo. Si algo necesita verse claro, es cremita.", "section": "colors" },
-      { "name": "La Regla de Dos Voces", "body": "Halenoir solo para titular, nombre y cifra. Basis Mono para todo lo demás, incluido el texto de los botones. No existe una tercera familia ni un peso intermedio que resuelva un caso dudoso: si dudas, es mono.", "section": "typography" },
-      { "name": "La Regla del Tracking Ganado", "body": "El tracking de 0.22em se reserva a caps de 10–11px. A cualquier tamaño mayor el espaciado se cierra: de 0.14em en enlaces de nav a negativo (-0.015em) en display. El tipo grande se aprieta, el tipo chico se abre.", "section": "typography" },
-      { "name": "La Regla del Borde a Borde", "body": "Las secciones de color llenan el ancho completo de la ventana. El contenedor limita el contenido, nunca el fondo. No existe una sección de color con márgenes laterales.", "section": "layout" },
-      { "name": "La Regla de la Retícula Impar", "body": "Cuando dos columnas comparten una fila, una es más ancha. 1.15fr 1fr antes que 1fr 1fr, salvo cuando las dos mitades son pares de contenido equivalente.", "section": "layout" },
-      { "name": "La Regla del Reposo Plano", "body": "Ninguna superficie lleva sombra en estado por defecto. Si un elemento necesita separarse de su fondo, cambia de color o gana un borde de 1px — no se levanta.", "section": "elevation" }
+      {
+        "name": "La Regla del Frío Único",
+        "body": "El azul tulipán aparece como máximo en una superficie por pantalla. Su rareza es su función: es el respiro entre tanto tono tierra. Dos usos visibles a la vez lo convierten en un cuarto color de marca, que no es.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de Una Tinta por Superficie",
+        "body": "Cada sección se compromete a un fondo y un color de texto. No se mezclan bordo y verde dentro del mismo bloque. El cambio de paleta es el cambio de sección.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Papel Cálido",
+        "body": "Nunca #FFFFFF, nunca un gris de sistema como fondo. Si algo necesita verse claro, es cremita.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de Dos Voces",
+        "body": "Halenoir solo para titular, nombre y cifra. Basis Mono para todo lo demás, incluido el texto de los botones. No existe una tercera familia ni un peso intermedio que resuelva un caso dudoso: si dudas, es mono.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla del Tracking Ganado",
+        "body": "El tracking de 0.22em se reserva a caps de 10–11px. A cualquier tamaño mayor el espaciado se cierra: de 0.14em en enlaces de nav a negativo (-0.015em) en display. El tipo grande se aprieta, el tipo chico se abre.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla del Borde a Borde",
+        "body": "Las secciones de color llenan el ancho completo de la ventana. El contenedor limita el contenido, nunca el fondo. No existe una sección de color con márgenes laterales.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla de la Retícula Impar",
+        "body": "Cuando dos columnas comparten una fila, una es más ancha. 1.15fr 1fr antes que 1fr 1fr, salvo cuando las dos mitades son pares de contenido equivalente.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla del Reposo Plano",
+        "body": "Ninguna superficie lleva sombra en estado por defecto. Si un elemento necesita separarse de su fondo, cambia de color o gana un borde de 1px — no se levanta.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Eyebrow Racionado",
+        "body": "Como maximo un eyebrow por cada tres secciones de la pagina. El Hero no lleva: su titular a 128px no necesita que nada lo presente.",
+        "section": "typography"
+      }
     ],
     "dos": [
       "Do vestir cada sección nueva con una sola pareja de color plena a sangre: fondo y color de texto comprometidos, de borde a borde.",
-      "Do racionar los eyebrows: como máximo uno por cada tres secciones en toda la página. El par eyebrow + titular es el pulso del recorrido, pero ponerlo en todas produce el ritmo plantillado que delata una interfaz generada.",
       "Do expresar cualquier dato concreto —origen, horario, método, precio, cifra— como par etiqueta/valor separado por reglas de 1px, siguiendo la ficha de tueste del empaque.",
       "Do cerrar el tracking conforme crece el tipo: 0.22em a 10px, 0.08em a 13px, negativo en display.",
       "Do colocar el isotipo recortado y por fuera del contenedor, entre 15% y 25% de opacidad, teñido al color de contraste de la superficie.",
       "Do terminar los botones con la flecha → y moverla en hover. Es la firma de interacción del sistema.",
-      "Do usar text-wrap: balance en los titulares de sección y en cualquier texto de display de dos a tres líneas."
+      "Do usar text-wrap: balance en los titulares de sección y en cualquier texto de display de dos a tres líneas.",
+      "Do racionar los eyebrows: como maximo uno por cada tres secciones de la pagina.",
+      "Do comprobar el contraste antes de bajar la opacidad de un texto. El minimo AA es 4.5:1 y a 10px no hay excepcion de texto grande.",
+      "Do declarar el bloque de prefers-reduced-motion al final del archivo: una media query no suma especificidad y antes pierde contra las reglas posteriores."
     ],
     "donts": [
       "Don't usar #FFFFFF ni un gris de sistema como fondo. El papel es cremita #FFEDBB.",
@@ -187,7 +382,10 @@
       "Don't encerrar listas de datos en tarjetas. Se dividen con reglas horizontales de 1px.",
       "Don't repartir dos columnas en mitades iguales cuando una lleva más peso. La retícula impar es intencional.",
       "Don't hacer flotar tarjetas sobre un lienzo compartido. Los bloques de color son el lienzo.",
-      "Don't tratar la identidad azul marino y rosa de 'Tulipán Bakery & Coffee' como referencia. Es una marca retirada que sigue viva en diseños antiguos de Canva."
+      "Don't tratar la identidad azul marino y rosa de 'Tulipán Bakery & Coffee' como referencia. Es una marca retirada que sigue viva en diseños antiguos de Canva.",
+      "Don't meter un <dialog> dentro de un <p>: solo admite contenido de frase y rompe la hidratacion de React.",
+      "Don't dar sombra a un modal. El aviso de privacidad es un bloque de color pleno, no una tarjeta flotante.",
+      "Don't usar verde-caminante como texto pequeno sobre cremita: da 3.80:1. Para eso esta la variante profunda."
     ]
   }
 }

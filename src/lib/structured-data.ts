@@ -37,7 +37,7 @@ export function cafeJsonLd({
     name: "Tulipán 58",
     alternateName: "Tulipán 58 Bakery & Coffee",
     description:
-      "Cafetería de especialidad en Gran Santa Fe, Caucel, Mérida. Tostamos nuestro propio grano de origen Veracruz y horneamos el acompañamiento del café.",
+      "Cafetería de especialidad en Gran Santa Fe, Caucel, Mérida. Grano de origen Veracruz tostado por casas de Mérida y Veracruz, y repostería de casa para acompañar.",
     url: siteUrl,
     image: `${siteUrl}/opengraph-image`,
     telephone: find.whatsapp,

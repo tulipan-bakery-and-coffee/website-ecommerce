@@ -1856,6 +1856,15 @@ main:focus {
   min-height: 100dvh;
 }
 
+.page-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
 .page-back {
   font-family: var(--font-body);
   font-weight: 700;
@@ -1863,7 +1872,7 @@ main:focus {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-verde-caminante-deep);
-  margin: 0 0 40px;
+  margin: 0;
 }
 
 .page-back a {

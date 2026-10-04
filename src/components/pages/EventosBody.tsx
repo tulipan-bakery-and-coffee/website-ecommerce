@@ -1,32 +1,16 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPageContent, getEventsSection, getFaqItems } from "@/sanity/queries";
 import { fallbackContent } from "@/lib/fallback-content";
 import PageShell from "@/components/PageShell";
+import type { Lang } from "@/types/content";
+import { l } from "@/types/content";
+import { hrefFor, UI } from "@/lib/i18n";
 import Faq from "@/components/Faq";
 
 const SLUG = "eventos";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageContent(SLUG).catch(() => null);
-  if (!page) return {};
-  return {
-    title: page.metaTitle_es,
-    description: page.metaDescription_es,
-    // Canonical propio: sin esto hereda el de la home y las paginas
-    // compiten entre si en lugar de sumar.
-    alternates: { canonical: `/${SLUG}` },
-    openGraph: {
-      title: page.metaTitle_es,
-      description: page.metaDescription_es,
-      url: `/${SLUG}`,
-      type: "website",
-    },
-  };
-}
-
-export default async function EventosPage() {
+export async function EventosBody({ lang }: { lang: Lang }) {
   const [page, faq, events] = await Promise.all([
     getPageContent(SLUG).catch(() => null),
     getFaqItems(SLUG).catch(() => []),
@@ -35,13 +19,14 @@ export default async function EventosPage() {
   if (!page) notFound();
 
   const bullets = events?.bullets ?? fallbackContent.events.bullets;
+  const ui = UI[lang];
   const wa = fallbackContent.find.whatsapp.replace(/\D/g, "");
 
   return (
-    <PageShell page={page}>
+    <PageShell page={page} lang={lang}>
       <ul className="page-bullets">
         {bullets.map((b, i) => (
-          <li key={i}>{"text_es" in b ? b.text_es : String(b)}</li>
+          <li key={i}>{l(b, "text", lang)}</li>
         ))}
       </ul>
 
@@ -53,13 +38,13 @@ export default async function EventosPage() {
           rel="noopener noreferrer"
           data-umami-event="eventos-whatsapp"
         >
-          Cuéntanos de tu evento
+          {ui.cuentanos}
         </a>
-        <Link href="/menu" className="btn btn-ghost" data-umami-event="eventos-a-menu">
-          Ver la carta
+        <Link href={hrefFor("menu", lang)} className="btn btn-ghost" data-umami-event="eventos-a-menu">
+          {ui.verCarta}
         </Link>
       </div>
-      <Faq items={faq} />
+      <Faq items={faq} lang={lang} />
     </PageShell>
   );
 }

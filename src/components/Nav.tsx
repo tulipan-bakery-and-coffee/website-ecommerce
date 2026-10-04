@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { hrefFor, type Slug } from "@/lib/i18n";
 import Image from "next/image";
 import type { Lang, NavContent } from "@/types/content";
 import { l } from "@/types/content";
 
 interface NavProps {
   lang: Lang;
-  setLang: (lang: Lang) => void;
   t: NavContent;
+  /** La pagina actual, para que el toggle lleve a su equivalente. */
+  slug: Slug;
 }
 
 /**
@@ -48,7 +51,7 @@ function useActiveSection(keys: string[]) {
   return active;
 }
 
-export default function Nav({ lang, setLang, t }: NavProps) {
+export default function Nav({ lang, t, slug }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const keys = useMemo(() => t.links.map((link) => link.key), [t.links]);
   const active = useActiveSection(keys);
@@ -56,7 +59,7 @@ export default function Nav({ lang, setLang, t }: NavProps) {
   return (
     <nav className="nav">
       <div className="nav-inner container">
-        <a href="#" className="nav-brand" data-umami-event="nav-logo-click">
+        <Link href={hrefFor("", lang)} className="nav-brand" data-umami-event="nav-logo-click">
           <Image
             src="/assets/isotipo-dark.webp"
             alt="Tulipan 58 isotipo"
@@ -66,13 +69,13 @@ export default function Nav({ lang, setLang, t }: NavProps) {
             loading="eager"
           />
           <span className="nav-wordmark font-display">tulipan58</span>
-        </a>
+        </Link>
 
         <ul className={`nav-links ${mobileOpen ? "nav-links--open" : ""}`}>
           {t.links.map((link) => (
             <li key={link.key}>
               <a
-                href={`#${link.key}`}
+                href={`${hrefFor(slug, lang)}#${link.key}`.replace("/#", "/#")}
                 className={`nav-link ${active === link.key ? "nav-link--active" : ""}`}
                 aria-current={active === link.key ? "true" : undefined}
                 data-umami-event={`nav-link-${link.key}`}
@@ -85,26 +88,33 @@ export default function Nav({ lang, setLang, t }: NavProps) {
         </ul>
 
         <div className="nav-actions">
+          {/* Enlaces, no botones: el idioma es parte de la URL. Un
+              crawler puede seguirlos y el visitante puede compartir la
+              version en la que esta. */}
           <div className="lang-toggle">
-            <button
+            <Link
+              href={hrefFor(slug, "es")}
               className={`lang-toggle-btn ${lang === "es" ? "lang-toggle-btn--active" : ""}`}
-              onClick={() => setLang("es")}
-              aria-label="Espanol"
+              hrefLang="es-MX"
+              aria-current={lang === "es" ? "true" : undefined}
+              aria-label="Español"
               data-umami-event="lang-switch-es"
             >
               ES
-            </button>
-            <button
+            </Link>
+            <Link
+              href={hrefFor(slug, "en")}
               className={`lang-toggle-btn ${lang === "en" ? "lang-toggle-btn--active" : ""}`}
-              onClick={() => setLang("en")}
+              hrefLang="en"
+              aria-current={lang === "en" ? "true" : undefined}
               aria-label="English"
               data-umami-event="lang-switch-en"
             >
               EN
-            </button>
+            </Link>
           </div>
 
-          <a href="#find" className="btn btn-bordo nav-cta" data-umami-event="nav-cta-encuentranos">
+          <a href={`${hrefFor(slug, lang)}#find`.replace("/#", "/#")} className="btn btn-bordo nav-cta" data-umami-event="nav-cta-encuentranos">
             {l(t, "cta", lang)}
           </a>
 

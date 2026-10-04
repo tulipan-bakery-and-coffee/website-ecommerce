@@ -97,6 +97,7 @@ export default async function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     <HomePage
+      lang="en"
       content={content}
       privacy={privacy}
       sanityFailed={sanityFailed}
