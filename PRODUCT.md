@@ -16,7 +16,9 @@ El cliente recurrente que vuelve solo por horario o dirección no se confirmó c
 
 ## Product Purpose
 
-Tulipán 58 es una cafetería de especialidad en Caucel, Mérida, que tuesta su propio café y hornea su propia panadería. También opera una barra de café móvil para eventos.
+Tulipán 58 es una cafetería de especialidad en Gran Santa Fe, Caucel, Mérida, que tuesta su propio café. También hornea su propia repostería y opera una barra de café móvil para eventos.
+
+**La repostería es acompañamiento del café, no línea de negocio.** Es lo contrario de la cafetería tradicional, donde la pastelería tira del ticket. Aquí el café manda y las galletas y el brownie existen para acompañarlo. Cualquier decisión de contenido, jerarquía visual o posicionamiento debe reflejar ese orden.
 
 El sitio es una vitrina: no vende en línea y no está planeado que lo haga. Su éxito se mide en visitas al local y en conversaciones de WhatsApp iniciadas para eventos. El nombre del repositorio, `website-ecommerce`, es histórico y no describe el alcance.
 
@@ -29,11 +31,12 @@ Lo que un competidor no podría copiar honestamente: tueste propio con origen tr
 ## Operating Context
 
 - **Ventana de atención corta y matutina.** Miércoles a sábado de 7:00 a 11:30, domingo de 8:00 a 12:00. Cerrado lunes y martes. Un visitante que llega al sitio por la tarde no puede actuar hoy; el horario es información de alta consecuencia, no un dato de pie de página.
-- **Ubicación periférica.** C. 11C Norte, Gran Santa Fe, Mérida, Yucatán. No es un punto de paso del centro: quien va, va a propósito, y necesita confiar en la dirección antes de manejar hasta allá.
+- **Ubicación periférica.** C. 11C Norte, Gran Santa Fe, Caucel, Mérida, Yucatán. Las tres capas importan y se usan distinto: **Gran Santa Fe** es el fraccionamiento, **Caucel** la comisaría y **Mérida** el municipio. No es un punto de paso del centro: quien va, va a propósito, y necesita confiar en la dirección antes de manejar hasta allá.
 - **Contacto por WhatsApp**, +52 1 984 469 6732. Es el canal real de cotización de eventos.
 - **Redes:** @tulipan58mid en Instagram, Facebook y TikTok.
 - **Contenido editable sin desarrollador.** Todo el texto, el menú y las imágenes viven en Sanity Studio, montado en la ruta `/studio` del mismo sitio. El dueño edita ahí.
-- **Entrega:** Next.js en Vercel, revalidación cada 60 segundos. Analítica con Umami, con eventos nombrados ya instrumentados en los CTA.
+- **Entrega:** Next.js en Vercel, revalidación cada 60 segundos. Analítica con Umami, con eventos nombrados ya instrumentados en los CTA. El host canónico es `www.tulipan.mx`; el apex redirige.
+- **Descubrimiento.** Las palabras por las que se quiere encontrar el negocio son **café**, **cafetería** y **café de especialidad**, sobre **Mérida**, **Caucel** y **Gran Santa Fe**. Caucel es la de menos competencia y la más específica. Competir por "cafetería Mérida" contra Centro y Montejo no es realista ni necesario.
 
 ## Capabilities and Constraints
 
@@ -54,7 +57,7 @@ Lo que un competidor no podría copiar honestamente: tueste propio con origen tr
 
 ## Evidence on Hand
 
-- **Real y usable:** fichas técnicas de los dos cafés en grano con origen, proceso y tueste; catálogo de panadería (galleta de gragea, galleta de mermelada, besitos de nuez, galleta triple chocolate, brownie); menú de nueve bebidas con precios; brand kit y piezas de empaque en Canva.
+- **Real y usable:** fichas técnicas de los dos cafés en grano con origen, proceso y tueste; catálogo de repostería de acompañamiento (galleta de gragea, galleta de mermelada, besitos de nuez, galleta triple chocolate, brownie); menú de nueve bebidas con precios; brand kit y piezas de empaque en Canva.
 - **Imágenes:** no hay fotografía en el repositorio — `public/assets/` solo contiene marca. Las fotos viven en Sanity: el hero ya tiene una imagen publicada. Donde falte, el CSS renderiza un marcador punteado. Las fotos nuevas las provee el dueño y se suben por Studio, no por el repositorio.
 - **No existe y no debe fabricarse:** testimonios, reseñas, conteos de clientes, premios, menciones de prensa, logos de clientes de eventos, cifras de producción. Los tres números de la sección About deben venir de un hecho verificable o salir.
 
@@ -65,6 +68,7 @@ Lo que un competidor no podría copiar honestamente: tueste propio con origen tr
 3. **La ficha técnica es la voz.** Proceso, región, tueste, método: la especificidad del empaque es el argumento de calidad y debe extenderse al sitio, no diluirse.
 4. **Dos trabajos, no uno.** Decidir visitar y cotizar un evento son recorridos distintos con necesidades de información distintas. El segundo necesita más que un botón de WhatsApp.
 5. **El inglés es paridad, no traducción.** Cada decisión de copy y de layout se verifica en las dos lenguas.
+6. **El café manda, la repostería acompaña.** No se compite en repostería ni se le da jerarquía propia. Existe para que el café no se tome solo.
 
 ## Accessibility & Inclusion
 

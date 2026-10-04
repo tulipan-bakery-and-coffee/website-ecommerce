@@ -41,7 +41,8 @@ El documento "Tulipán" de 15 páginas (`DAG5V0wT5sw`) no es un manual de marca:
 |---|---|---|
 | `--color-cremita-cafe` | `#FFEDBB` | fondo base |
 | `--color-roso-pausar` | `#632E2E` | acento primario, secciones oscuras |
-| `--color-verde-caminante` | `#787C41` | isotipo, labels, ticker |
+| `--color-verde-caminante` | `#787C41` | isotipo, labels, Statement |
+| `--color-verde-caminante-deep` | `#5F6234` | ticker, hover de `.btn-verde` |
 | `--color-cafe-quemado` | `#333333` | texto, secciones de contraste |
 | `--color-tulipan` | `#CCDBF8` | acento frío, usado con reserva |
 | `--font-display` | Halenoir Bold | títulos |
@@ -68,9 +69,9 @@ Las etiquetas de café son el artefacto de marca más desarrollado. Lo que estab
 - Café de especialidad, tostado propio, origen Veracruz.
 - SKUs documentados: **Amanecer** (lavado, La Laja Veracruz, tueste medio-oscuro, para espresso — "intenso y dulce") y **Pausa** (honey, Xico Veracruz, tueste medio, para filtrados — "frutal y suave").
 - Formatos: 100G y 250G.
-- Panadería: galletas de gragea, galleta de mermelada, besitos de nuez, galleta triple chocolate, brownie.
+- Repostería **de acompañamiento**, no línea propia: galletas de gragea, de mermelada, besitos de nuez, triple chocolate, brownie. Al revés de la cafetería tradicional, aquí el café manda y la repostería existe para acompañarlo. No se le da jerarquía visual ni de contenido por encima del café.
 - Línea de negocio secundaria: **barra de café para eventos**.
-- Mercado: Mérida, Yucatán. Español e inglés con la misma calidad de copy y de diseño: hay público extranjero real.
+- Mercado: Gran Santa Fe, Caucel, Mérida. Las tres capas se nombran: fraccionamiento, comisaría y municipio. Español e inglés con la misma calidad de copy y de diseño: hay público extranjero real.
 
 ---
 
@@ -92,7 +93,7 @@ Dos piezas de Canva quedaron obsoletas y habría que corregirlas en el origen: e
 
 ### Lo que sigue roto en producción
 
-1. **`findSection.title_es` y `title_en` no existen en Sanity.** El sitio cae al respaldo y publica "calle tulipan 58." / "58 tulipan street." como titular de la sección Find — una calle que no es el domicilio. Es el único error de dato visible hoy en el sitio.
+1. **`findSection.title_es` y `title_en` están vacíos en Sanity.** El sitio *no* cae al respaldo: `page.tsx` hace `sanityData.findSection ?? fallbackContent.find`, y como el documento existe reemplaza el objeto entero. El titular salía **vacío**. El componente ya no emite un encabezado sin texto, pero la sección sigue sin titular hasta publicarlo.
 2. **`heroSection.foot` dice "abierto desde las 7:30"** mientras el horario publicado dice 7:00. Dos partes de la misma página se contradicen.
 
 El mapa decorativo en SVG de `src/components/Find.tsx` no es un problema activo: Sanity ya tiene `mapEmbedUrl` con el embed real de Google Maps y el componente prefiere el iframe, así que ese SVG no se renderiza en producción. Sigue siendo deuda — si alguien borra el embed, vuelve a aparecer una retícula del centro de Mérida con un pin marcado "58".
