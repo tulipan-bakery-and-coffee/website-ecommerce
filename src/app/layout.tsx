@@ -5,7 +5,7 @@ import UmamiTracker from "@/components/UmamiTracker";
 export const metadata: Metadata = {
   title: "tulipan58 · el cafe que camina contigo",
   description:
-    "Cafe de especialidad en la calle tulipan 58, Merida, Yucatan. El cafe que camina contigo.",
+    "Cafe de especialidad en Gran Santa Fe, Merida, Yucatan. El cafe que camina contigo.",
   icons: {
     icon: "/assets/favicon.ico",
   },
