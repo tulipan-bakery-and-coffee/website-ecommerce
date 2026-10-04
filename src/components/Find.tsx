@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
 import type { Lang, FindContent } from "@/types/content";
 import { l } from "@/types/content";
+import { SITE_URL } from "@/lib/site";
 
 interface FindProps {
   t: FindContent;
@@ -50,7 +51,7 @@ export default function Find({ t, lang }: FindProps) {
                     </a>
                   )}
                   {t.website && (
-                    <a href={`https://${t.website}`} target="_blank" rel="noopener noreferrer" data-umami-event="contact-website">
+                    <a href={SITE_URL} target="_blank" rel="noopener noreferrer" data-umami-event="contact-website">
                       web · {t.website}
                     </a>
                   )}
