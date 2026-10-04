@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPageContent, getMenuItems, getPastryItems } from "@/sanity/queries";
+import { getPageContent, getMenuItems, getPastryItems, getFaqItems } from "@/sanity/queries";
 import { fallbackContent } from "@/lib/fallback-content";
 import PageShell from "@/components/PageShell";
+import Faq from "@/components/Faq";
 
 const SLUG = "menu";
 
@@ -24,8 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MenuPage() {
-  const [page, bebidas, reposteria] = await Promise.all([
+  const [page, faq, bebidas, reposteria] = await Promise.all([
     getPageContent(SLUG).catch(() => null),
+    getFaqItems(SLUG).catch(() => []),
     getMenuItems().catch(() => []),
     getPastryItems().catch(() => []),
   ]);
@@ -72,6 +74,7 @@ export default async function MenuPage() {
           Cómo llegar
         </Link>
       </div>
+      <Faq items={faq} />
     </PageShell>
   );
 }

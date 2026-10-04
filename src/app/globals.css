@@ -673,7 +673,7 @@ main:focus {
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-verde-caminante);
+  color: var(--color-verde-caminante-deep);
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
   transition: color 240ms;
@@ -933,7 +933,7 @@ main:focus {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-verde-caminante);
+  color: var(--color-verde-caminante-deep);
   margin-top: 10px;
   max-width: 220px;
 }
@@ -1460,7 +1460,7 @@ main:focus {
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-verde-caminante);
+  color: var(--color-verde-caminante-deep);
   margin-bottom: 8px;
 }
 
@@ -1819,7 +1819,7 @@ main:focus {
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-verde-caminante);
+  color: var(--color-verde-caminante-deep);
 }
 
 .nf-title {
@@ -1862,7 +1862,7 @@ main:focus {
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-verde-caminante);
+  color: var(--color-verde-caminante-deep);
   margin: 0 0 40px;
 }
 
@@ -1920,7 +1920,7 @@ main:focus {
   letter-spacing: 0.08em;
   white-space: nowrap;
   align-self: center;
-  color: var(--color-verde-caminante);
+  color: var(--color-verde-caminante-deep);
 }
 
 .page-row-desc {
@@ -2018,6 +2018,57 @@ main:focus {
   .page-card-title {
     font-size: 32px;
   }
+}
+
+/* ── Preguntas frecuentes ──────────────────────────────────────────── */
+
+.faq-list {
+  border-top: 1px solid rgba(51, 51, 51, 0.15);
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+}
+
+.faq-question {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "+";
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color-verde-caminante-deep);
+  transition: transform 200ms var(--ease-out);
+}
+
+.faq-item[open] .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 62ch;
+  margin: 0 0 24px;
 }
 
 /* ── Reduced Motion ────────────────────────────────────────────────── */

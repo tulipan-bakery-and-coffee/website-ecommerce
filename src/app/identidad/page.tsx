@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPageContent, getCoffeeProducts } from "@/sanity/queries";
+import { getPageContent, getCoffeeProducts, getFaqItems } from "@/sanity/queries";
 import PageShell from "@/components/PageShell";
+import Faq from "@/components/Faq";
 
 const SLUG = "identidad";
 
@@ -23,8 +24,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function IdentidadPage() {
-  const [page, cafes] = await Promise.all([
+  const [page, faq, cafes] = await Promise.all([
     getPageContent(SLUG).catch(() => null),
+    getFaqItems(SLUG).catch(() => []),
     getCoffeeProducts().catch(() => []),
   ]);
   if (!page) notFound();
@@ -61,6 +63,7 @@ export default async function IdentidadPage() {
           Barra para eventos
         </Link>
       </div>
+      <Faq items={faq} />
     </PageShell>
   );
 }

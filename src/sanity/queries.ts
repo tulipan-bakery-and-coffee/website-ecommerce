@@ -347,6 +347,22 @@ export async function getPastryItems(): Promise<PastryItem[]> {
   }`);
 }
 
+export interface FaqItem {
+  page: string;
+  question_es: string; question_en: string;
+  answer_es: string; answer_en: string;
+  order: number;
+}
+
+export async function getFaqItems(page: string): Promise<FaqItem[]> {
+  return client.fetch<FaqItem[]>(
+    `*[_type == "faqItem" && page == $page] | order(order asc){
+      page, question_es, question_en, answer_es, answer_en, order
+    }`,
+    { page },
+  );
+}
+
 export async function getAllContent(): Promise<AllContent> {
   const [
     siteSettings,

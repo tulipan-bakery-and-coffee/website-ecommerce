@@ -1,9 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPageContent, getEventsSection } from "@/sanity/queries";
+import { getPageContent, getEventsSection, getFaqItems } from "@/sanity/queries";
 import { fallbackContent } from "@/lib/fallback-content";
 import PageShell from "@/components/PageShell";
+import Faq from "@/components/Faq";
 
 const SLUG = "eventos";
 
@@ -26,8 +27,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function EventosPage() {
-  const [page, events] = await Promise.all([
+  const [page, faq, events] = await Promise.all([
     getPageContent(SLUG).catch(() => null),
+    getFaqItems(SLUG).catch(() => []),
     getEventsSection().catch(() => null),
   ]);
   if (!page) notFound();
@@ -57,6 +59,7 @@ export default async function EventosPage() {
           Ver la carta
         </Link>
       </div>
+      <Faq items={faq} />
     </PageShell>
   );
 }
