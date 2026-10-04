@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T00:00:00.000Z",
+  "title": "Design System: Tulipán 58",
+  "extensions": {
+    "colorMeta": {
+      "cremita-cafe": {
+        "role": "neutral",
+        "displayName": "Cremita Café",
+        "canonical": "#FFEDBB",
+        "tonalRamp": ["#2E2910", "#4D4420", "#6E6231", "#908045", "#B4A262", "#D4C48C", "#FFEDBB", "#FFF8E2"]
+      },
+      "roso-pausar": {
+        "role": "primary",
+        "displayName": "Bordo Pausar",
+        "canonical": "#632E2E",
+        "tonalRamp": ["#1E0D0D", "#331717", "#4E2424", "#632E2E", "#8A4545", "#B06D6D", "#D5A3A3", "#F0DCDC"]
+      },
+      "verde-caminante": {
+        "role": "secondary",
+        "displayName": "Verde Caminante",
+        "canonical": "#787C41",
+        "tonalRamp": ["#1D1E0F", "#32341B", "#4B4D28", "#5F6234", "#787C41", "#9BA05C", "#C2C68F", "#E6E8CB"]
+      },
+      "cafe-quemado": {
+        "role": "neutral",
+        "displayName": "Café Quemado",
+        "canonical": "#333333",
+        "tonalRamp": ["#0D0D0D", "#1A1A1A", "#262626", "#333333", "#5A5A5A", "#8A8A8A", "#BDBDBD", "#E8E8E8"]
+      },
+      "tulipan": {
+        "role": "tertiary",
+        "displayName": "Azul Tulipán",
+        "canonical": "#CCDBF8",
+        "tonalRamp": ["#101929", "#1C2B45", "#2C4269", "#3F5E92", "#6485BD", "#99B4E0", "#CCDBF8", "#EAF1FD"]
+      },
+      "gris-apunte": {
+        "role": "neutral",
+        "displayName": "Gris Apunte",
+        "canonical": "#5A5A5A",
+        "tonalRamp": ["#171717", "#262626", "#3A3A3A", "#5A5A5A", "#7E7E7E", "#A5A5A5", "#CCCCCC", "#EDEDED"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular del Hero. La variante del Statement empuja a clamp(56px, 10vw, 160px) con lh 0.9 y ls -0.02em."
+      },
+      "headline": { "displayName": "Headline", "purpose": "Titulares de sección, con text-wrap: balance." },
+      "title": { "displayName": "Title", "purpose": "Nombre de platillo, valor de dato, wordmark de nav y footer." },
+      "body": { "displayName": "Body", "purpose": "Párrafos de About y Events. Baja a 15px en bloques de datos y 12-13px con peso 300 en descripciones." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows, metadatos, enlaces de nav, texto de botón, filtros. La clase de tipo más frecuente del sitio." }
+    },
+    "shadows": [
+      {
+        "name": "pulso-ubicacion",
+        "value": "0 0 0 0 rgba(99, 46, 46, 0.5) → 0 0 0 14px rgba(99, 46, 46, 0)",
+        "purpose": "Anillo pulsante de 2s exclusivo del pin del mapa. Es señal de ubicación, no elevación. Única box-shadow del proyecto; no reutilizar."
+      }
+    ],
+    "motion": [
+      { "name": "ease-salida", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Easing de carácter del sistema: subrayado del nav (260ms) y lift de tarjeta (380ms)." },
+      { "name": "dur-control", "value": "240ms", "purpose": "Chips de filtro, interruptor de idioma, flecha de fila de menú." },
+      { "name": "dur-boton", "value": "250ms", "purpose": "Color y desplazamiento de botón, avance de la flecha." },
+      { "name": "dur-superficie", "value": "280ms", "purpose": "Velo de hover sobre fila de menú." },
+      { "name": "dur-lift", "value": "380ms", "purpose": "translateY(-4px) de tarjeta de Experience." },
+      { "name": "dur-reveal", "value": "700ms ease", "purpose": "Entrada por scroll: opacity 0→1 y translateY(16px)→0. Retrasos escalonados de 100/200/300/400ms." },
+      { "name": "ticker", "value": "38s linear infinite", "purpose": "Desplazamiento continuo de la cinta verde." },
+      { "name": "orbita", "value": "40s linear infinite", "purpose": "Rotación del anillo de Events." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "900px" },
+      { "name": "sm", "value": "780px" },
+      { "name": "xs", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón Primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal sobre superficie cremita. Lleva la flecha firma del sistema.",
+      "html": "<button class=\"ds-btn ds-btn-bordo\">Ver menú</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body, 'Basis Grotesque Mono Pro', ui-monospace, monospace); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 28px; border: none; border-radius: var(--radius-md, 12px); cursor: pointer; transition: background-color 0.25s, color 0.25s, transform 0.25s; } .ds-btn::after { content: '\\2192'; display: inline-block; transition: transform 0.25s; } .ds-btn:hover { transform: translateY(-1px); } .ds-btn:hover::after { transform: translateX(4px); } .ds-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; } .ds-btn-bordo { background-color: var(--color-roso-pausar, #632E2E); color: var(--color-cremita-cafe, #FFEDBB); } .ds-btn-bordo:hover { background-color: #4E2424; }"
+    },
+    {
+      "name": "Botón Fantasma",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Acción secundaria. Invierte por completo en hover en lugar de aclararse.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Cómo llegar</button>",
+      "css": ".ds-btn-ghost { background-color: transparent; color: var(--color-cafe-quemado, #333333); border: 1.5px solid var(--color-cafe-quemado, #333333); } .ds-btn-ghost:hover { background-color: var(--color-cafe-quemado, #333333); color: var(--color-cremita-cafe, #FFEDBB); }"
+    },
+    {
+      "name": "Chip de Filtro",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Filtro de categoría del menú sobre superficie bordo. El activo invierte por completo.",
+      "html": "<div style=\"display:flex;gap:8px;background:#632E2E;padding:16px;\"><button class=\"ds-chip ds-chip-active\">Todo</button><button class=\"ds-chip\">Caliente</button><button class=\"ds-chip\">Frío</button></div>",
+      "css": ".ds-chip { font-family: var(--font-body, 'Basis Grotesque Mono Pro', ui-monospace, monospace); font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255, 237, 187, 0.35); background: none; color: #FFEDBB; cursor: pointer; transition: background 240ms, color 240ms, border-color 240ms; } .ds-chip:hover:not(.ds-chip-active) { background: rgba(255, 237, 187, 0.1); } .ds-chip:focus-visible { outline: 2px solid #FFEDBB; outline-offset: 2px; } .ds-chip-active { background: #FFEDBB; color: #632E2E; border-color: #FFEDBB; }"
+    },
+    {
+      "name": "Tarjeta de Experiencia",
+      "kind": "card",
+      "refersTo": "card-experience",
+      "description": "Tarjeta de color pleno con etiqueta arriba y titular abajo. El lift más generoso del sistema.",
+      "html": "<article class=\"ds-card ds-card-bordo\"><span class=\"ds-card-tag\">Barra de eventos</span><div><h3 class=\"ds-card-title\">Llevamos la barra</h3><p class=\"ds-card-body\">Café de especialidad montado donde estés.</p></div></article>",
+      "css": ".ds-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; border-radius: 12px; padding: 28px 24px 24px; min-height: 380px; width: 300px; overflow: hidden; transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-card:hover { transform: translateY(-4px); } .ds-card-bordo { background: #632E2E; color: #FFEDBB; } .ds-card-tag { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.85; } .ds-card-title { font-family: Halenoir, Georgia, serif; font-weight: 700; font-size: 40px; line-height: 1; letter-spacing: -0.015em; margin: 0; } .ds-card-body { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-size: 13px; line-height: 1.5; margin: 12px 0 0; max-width: 260px; }"
+    },
+    {
+      "name": "Fila de Menú",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Componente firma. Fila de tabla impresa dividida por reglas de 1px, no tarjeta.",
+      "html": "<div style=\"background:#632E2E;padding:0 16px;\"><div class=\"ds-row\"><div class=\"ds-row-head\"><span class=\"ds-row-name\">Espresso americano</span><span class=\"ds-row-price\">$45</span></div><p class=\"ds-row-desc\">Doble, corto, honesto.</p><span class=\"ds-row-arrow\">&#8594;</span></div></div>",
+      "css": ".ds-row { position: relative; padding: 24px 24px 24px 0; border-top: 1px solid rgba(255, 237, 187, 0.2); border-bottom: 1px solid rgba(255, 237, 187, 0.2); color: #FFEDBB; transition: background 280ms; width: 320px; } .ds-row:hover { background: rgba(255, 237, 187, 0.06); } .ds-row-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; } .ds-row-name { font-family: Halenoir, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.1; letter-spacing: -0.01em; } .ds-row-price { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; white-space: nowrap; padding-top: 4px; } .ds-row-desc { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 300; font-size: 12px; line-height: 1.5; opacity: 0.75; margin: 8px 0 0; max-width: 320px; } .ds-row-arrow { position: absolute; right: 18px; bottom: 20px; font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 14px; opacity: 0; transform: translateX(-6px); transition: opacity 240ms, transform 240ms; } .ds-row:hover .ds-row-arrow { opacity: 1; transform: translateX(0); }"
+    },
+    {
+      "name": "Bloque de Dato",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "La ficha de tueste del empaque traducida a interfaz. Etiqueta en verde sobre valor en display, dividido por reglas.",
+      "html": "<div class=\"ds-spec\"><div class=\"ds-spec-label\">Horario</div><div class=\"ds-spec-value\">Mié — Sáb · 7:00 a 11:30</div></div><div class=\"ds-spec\"><div class=\"ds-spec-label\">Dirección</div><div class=\"ds-spec-value ds-spec-value-lg\">Gran Santa Fe, Mérida</div></div>",
+      "css": ".ds-spec { padding: 20px 0; border-bottom: 1px solid rgba(51, 51, 51, 0.15); width: 320px; } .ds-spec:first-of-type { border-top: 1px solid rgba(51, 51, 51, 0.15); } .ds-spec-label { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #787C41; margin-bottom: 8px; } .ds-spec-value { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 400; font-size: 15px; line-height: 1.55; color: #333333; } .ds-spec-value-lg { font-family: Halenoir, Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }"
+    },
+    {
+      "name": "Enlace de Navegación",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Subrayado que crece desde el origen del texto animando right, no scaleX.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Menú</a><a class=\"ds-nav-link\" href=\"#\">Nosotros</a><a class=\"ds-nav-link\" href=\"#\">Encuéntranos</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; background: #FFEDBB; padding: 16px; border-bottom: 1px solid rgba(51, 51, 51, 0.08); } .ds-nav-link { font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #333333; text-decoration: none; position: relative; padding: 4px 0; } .ds-nav-link::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: currentColor; transition: right 260ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-nav-link:hover::after { right: 0; } .ds-nav-link:focus-visible { outline: 2px solid #333333; outline-offset: 3px; }"
+    },
+    {
+      "name": "Interruptor de Idioma",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Píldora de dos estados. El activo invierte a oscuro; el inactivo baja a 55% de opacidad.",
+      "html": "<div class=\"ds-lang\"><button class=\"ds-lang-btn ds-lang-btn-active\">ES</button><button class=\"ds-lang-btn\">EN</button></div>",
+      "css": ".ds-lang { display: inline-flex; align-items: center; border: 1px solid rgba(51, 51, 51, 0.25); border-radius: 999px; padding: 3px; font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; } .ds-lang-btn { padding: 4px 10px; border-radius: 999px; border: none; background: none; color: #333333; opacity: 0.55; cursor: pointer; transition: background 240ms, color 240ms, opacity 240ms; } .ds-lang-btn:focus-visible { outline: 2px solid #333333; outline-offset: 2px; } .ds-lang-btn-active { background: #333333; color: #FFEDBB; opacity: 1; }"
+    },
+    {
+      "name": "Ticker",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Cinta verde de ancho completo bajo el nav. Marcada aria-hidden: es ritmo, no contenido.",
+      "html": "<div class=\"ds-ticker\" aria-hidden=\"true\"><div class=\"ds-ticker-track\"><span class=\"ds-ticker-item\">Café de especialidad<span class=\"ds-ticker-dot\">·</span><span>tulipan58</span><span class=\"ds-ticker-dot\">·</span></span><span class=\"ds-ticker-item\">Café de especialidad<span class=\"ds-ticker-dot\">·</span><span>tulipan58</span><span class=\"ds-ticker-dot\">·</span></span></div></div>",
+      "css": ".ds-ticker { background: #787C41; color: #FFEDBB; padding: 10px 0; overflow: hidden; border-bottom: 1px solid rgba(255, 237, 187, 0.15); } .ds-ticker-track { display: flex; gap: 48px; white-space: nowrap; width: max-content; font-family: 'Basis Grotesque Mono Pro', ui-monospace, monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; animation: ds-ticker 38s linear infinite; } .ds-ticker-item { display: inline-flex; align-items: center; gap: 48px; } .ds-ticker-dot { opacity: 0.6; } @keyframes ds-ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Caminata de la Mañana",
+    "overview": "El sistema está organizado como un trayecto, no como una composición. Tulipán 58 abre de 7:00 a 11:30 y se declara acompañante, no destino: el café que tomas de camino, de vuelta o en la pausa. La página traduce eso literalmente. El ticker corre sin detenerse en la parte superior. Las secciones no son tarjetas sobre un fondo común sino bloques de color a sangre que se suceden como cuadras —cremita, bordo, cremita, oscuro, verde— y cada cambio de color es una parada. El scroll es el paso; el reveal de 700ms es lo que alcanza a entrar en foco mientras caminas.\n\nLa atmósfera es cálida y de barrio, viva, y al mismo tiempo pausada. Esas tres cosas no se contradicen aquí porque cada una vive en una capa distinta: la calidez está en el papel (fondo cremita en lugar de blanco, paleta tierra completa salvo un acento), el carácter está en la escala tipográfica (titulares de hasta 160px, pleno sangrado, sin miedo) y la pausa está en el aire y en la ausencia total de ruido —ni una sombra, ni un gradiente, ni una textura.\n\nLa especificidad viene del empaque. Las bolsas de café imprimen proceso, región, nivel de tueste y fecha de tueste en pares etiqueta/valor, y esa retícula es el lenguaje de detalle de todo el sitio: los bloques de dirección y horario, los metadatos del hero, las estadísticas, el pie de las tarjetas. El dato concreto reemplaza al adjetivo. Cuando una sección necesita decir que el café es bueno, dice de dónde viene.",
+    "keyCharacteristics": [
+      "Bloques de color a sangre de borde a borde, nunca tarjetas flotando sobre un lienzo",
+      "Fondo cremita #FFEDBB en lugar de blanco, en toda la superficie base",
+      "Cero sombras en reposo; la profundidad es cromática, no lumínica",
+      "Display geométrico pesado contra cuerpo monoespaciado: contraste duro, sin familia intermedia",
+      "Caps de 10–11px con tracking de 0.22em como único recurso de jerarquía menor",
+      "El isotipo aparece recortado y a baja opacidad como textura de fondo, nunca repetido como logo"
+    ],
+    "rules": [
+      { "name": "La Regla del Frío Único", "body": "El azul tulipán aparece como máximo en una superficie por pantalla. Su rareza es su función: es el respiro entre tanto tono tierra. Dos usos visibles a la vez lo convierten en un cuarto color de marca, que no es.", "section": "colors" },
+      { "name": "La Regla de Una Tinta por Superficie", "body": "Cada sección se compromete a un fondo y un color de texto. No se mezclan bordo y verde dentro del mismo bloque. El cambio de paleta es el cambio de sección.", "section": "colors" },
+      { "name": "La Regla del Papel Cálido", "body": "Nunca #FFFFFF, nunca un gris de sistema como fondo. Si algo necesita verse claro, es cremita.", "section": "colors" },
+      { "name": "La Regla de Dos Voces", "body": "Halenoir solo para titular, nombre y cifra. Basis Mono para todo lo demás, incluido el texto de los botones. No existe una tercera familia ni un peso intermedio que resuelva un caso dudoso: si dudas, es mono.", "section": "typography" },
+      { "name": "La Regla del Tracking Ganado", "body": "El tracking de 0.22em se reserva a caps de 10–11px. A cualquier tamaño mayor el espaciado se cierra: de 0.14em en enlaces de nav a negativo (-0.015em) en display. El tipo grande se aprieta, el tipo chico se abre.", "section": "typography" },
+      { "name": "La Regla del Borde a Borde", "body": "Las secciones de color llenan el ancho completo de la ventana. El contenedor limita el contenido, nunca el fondo. No existe una sección de color con márgenes laterales.", "section": "layout" },
+      { "name": "La Regla de la Retícula Impar", "body": "Cuando dos columnas comparten una fila, una es más ancha. 1.15fr 1fr antes que 1fr 1fr, salvo cuando las dos mitades son pares de contenido equivalente.", "section": "layout" },
+      { "name": "La Regla del Reposo Plano", "body": "Ninguna superficie lleva sombra en estado por defecto. Si un elemento necesita separarse de su fondo, cambia de color o gana un borde de 1px — no se levanta.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do vestir cada sección nueva con una sola pareja de color plena a sangre: fondo y color de texto comprometidos, de borde a borde.",
+      "Do racionar los eyebrows: como máximo uno por cada tres secciones en toda la página. El par eyebrow + titular es el pulso del recorrido, pero ponerlo en todas produce el ritmo plantillado que delata una interfaz generada.",
+      "Do expresar cualquier dato concreto —origen, horario, método, precio, cifra— como par etiqueta/valor separado por reglas de 1px, siguiendo la ficha de tueste del empaque.",
+      "Do cerrar el tracking conforme crece el tipo: 0.22em a 10px, 0.08em a 13px, negativo en display.",
+      "Do colocar el isotipo recortado y por fuera del contenedor, entre 15% y 25% de opacidad, teñido al color de contraste de la superficie.",
+      "Do terminar los botones con la flecha → y moverla en hover. Es la firma de interacción del sistema.",
+      "Do usar text-wrap: balance en los titulares de sección y en cualquier texto de display de dos a tres líneas."
+    ],
+    "donts": [
+      "Don't usar #FFFFFF ni un gris de sistema como fondo. El papel es cremita #FFEDBB.",
+      "Don't añadir una sombra a una superficie en reposo. La profundidad es cromática. La única box-shadow del proyecto es el pulso del pin del mapa.",
+      "Don't usar gradientes, glassmorphism, desenfoques de fondo ni texturas. No existe ni uno en el sistema y su ausencia es la decisión.",
+      "Don't mostrar el azul tulipán #CCDBF8 más de una vez por pantalla.",
+      "Don't introducir una tercera familia tipográfica ni un peso intermedio. Si no es titular, nombre o cifra, va en mono.",
+      "Don't encerrar listas de datos en tarjetas. Se dividen con reglas horizontales de 1px.",
+      "Don't repartir dos columnas en mitades iguales cuando una lleva más peso. La retícula impar es intencional.",
+      "Don't hacer flotar tarjetas sobre un lienzo compartido. Los bloques de color son el lienzo.",
+      "Don't tratar la identidad azul marino y rosa de 'Tulipán Bakery & Coffee' como referencia. Es una marca retirada que sigue viva en diseños antiguos de Canva."
+    ]
+  }
+}
