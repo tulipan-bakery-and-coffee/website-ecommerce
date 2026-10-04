@@ -81,7 +81,7 @@ export function cafeJsonLd({
         }
       : {}),
     hasMap: find.mapsUrl,
-    hasMenu: `${siteUrl}/#menu`,
+    hasMenu: `${siteUrl}/menu`,
     sameAs: [
       "https://instagram.com/tulipan58mid",
       "https://facebook.com/tulipan58mid",

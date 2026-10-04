@@ -1845,6 +1845,181 @@ main:focus {
   flex-wrap: wrap;
 }
 
+/* ── Paginas internas ──────────────────────────────────────────────── */
+/* Reutilizan el sistema: papel cremita, eyebrow mas titular en la
+   reticula de seccion, cuerpo en mono, pares etiqueta/valor separados
+   por reglas de 1px. No introducen tokens nuevos. */
+
+.page {
+  background: var(--color-cremita-cafe);
+  color: var(--color-cafe-quemado);
+  min-height: 100dvh;
+}
+
+.page-back {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-verde-caminante);
+  margin: 0 0 40px;
+}
+
+.page-back a {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.page-intro p {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  text-wrap: pretty;
+  max-width: 62ch;
+  margin: 0 0 20px;
+}
+
+.page-subtitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 64px 0 24px;
+}
+
+.page-list {
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0;
+  border-top: 1px solid rgba(51, 51, 51, 0.15);
+}
+
+.page-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+}
+
+.page-row-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.page-row-price,
+.page-row-pair {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  align-self: center;
+  color: var(--color-verde-caminante);
+}
+
+.page-row-desc {
+  grid-column: 1 / -1;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 56ch;
+  margin: 0;
+}
+
+.page-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0;
+  border-top: 1px solid rgba(51, 51, 51, 0.15);
+}
+
+.page-bullets li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.page-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.page-card {
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+}
+
+.page-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.page-card-tagline {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 12px 0 28px;
+  max-width: 40ch;
+}
+
+.page-spec {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 20px;
+}
+
+.page-spec dt {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 12px 0;
+  opacity: 0.8;
+  border-top: 1px solid currentColor;
+}
+
+.page-spec dd {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  padding: 12px 0;
+  text-align: right;
+  border-top: 1px solid currentColor;
+}
+
+.page-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 56px;
+}
+
+@media (max-width: 780px) {
+  .page-cards {
+    grid-template-columns: 1fr;
+  }
+  .page-card-title {
+    font-size: 32px;
+  }
+}
+
 /* ── Reduced Motion ────────────────────────────────────────────────── */
 /* Menos y mas suave, no cero: se conserva todo lo que es opacidad
    porque sigue ayudando a entender el cambio. Se retira el

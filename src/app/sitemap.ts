@@ -2,18 +2,15 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 
 /**
- * Hoy solo hay una URL indexable. El sitemap existe igual: es lo que se
- * envia a Search Console y lo que avisa de cambios con lastModified.
- *
- * Cuando se añadan /eventos, /menu e /identidad, entran aqui.
+ * Solo URLs canonicas e indexables. /studio queda fuera a proposito: no
+ * hay nada que indexar y robots.ts ya lo bloquea.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   return [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
+    { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/eventos`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/menu`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE_URL}/identidad`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 }

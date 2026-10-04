@@ -296,6 +296,57 @@ export async function getPrivacyNotice(): Promise<PrivacyNotice | null> {
   return client.fetch<PrivacyNotice | null>(privacyNoticeQuery);
 }
 
+export interface PageContent {
+  slug: string;
+  metaTitle_es: string; metaTitle_en: string;
+  metaDescription_es: string; metaDescription_en: string;
+  eyebrow_es?: string; eyebrow_en?: string;
+  title_es: string; title_en: string;
+  intro_es: string; intro_en: string;
+}
+
+export interface CoffeeProduct {
+  name_es: string; name_en: string;
+  tagline_es: string; tagline_en: string;
+  process_es: string; process_en: string;
+  region: string;
+  roast_es: string; roast_en: string;
+  method_es: string; method_en: string;
+  colorPair: string;
+  order: number;
+}
+
+export interface PastryItem {
+  name_es: string; name_en: string;
+  description_es: string; description_en: string;
+  pairsWith_es?: string; pairsWith_en?: string;
+  order: number;
+}
+
+export async function getPageContent(slug: string): Promise<PageContent | null> {
+  return client.fetch<PageContent | null>(
+    `*[_type == "pageContent" && slug == $slug][0]{
+      slug, metaTitle_es, metaTitle_en, metaDescription_es, metaDescription_en,
+      eyebrow_es, eyebrow_en, title_es, title_en, intro_es, intro_en
+    }`,
+    { slug },
+  );
+}
+
+export async function getCoffeeProducts(): Promise<CoffeeProduct[]> {
+  return client.fetch<CoffeeProduct[]>(`*[_type == "coffeeProduct"] | order(order asc){
+    name_es, name_en, tagline_es, tagline_en, process_es, process_en,
+    region, roast_es, roast_en, method_es, method_en, colorPair, order
+  }`);
+}
+
+export async function getPastryItems(): Promise<PastryItem[]> {
+  return client.fetch<PastryItem[]>(`*[_type == "pastryItem"] | order(order asc){
+    name_es, name_en, description_es, description_en,
+    pairsWith_es, pairsWith_en, order
+  }`);
+}
+
 export async function getAllContent(): Promise<AllContent> {
   const [
     siteSettings,
