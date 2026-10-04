@@ -491,10 +491,6 @@ button {
   padding: 24px 0;
 }
 
-.hero-eyebrow {
-  color: var(--color-verde-caminante);
-}
-
 .hero-title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -593,23 +589,6 @@ button {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 237, 187, 0.55);
-}
-
-.hero-visual-meta {
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255, 237, 187, 0.7);
-}
-
-.hero-visual-meta-label {
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: rgba(255, 237, 187, 0.9);
 }
 
 @media (max-width: 900px) {

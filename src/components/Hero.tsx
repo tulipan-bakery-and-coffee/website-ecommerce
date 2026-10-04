@@ -14,10 +14,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
     <section className="hero" id="hero">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <Reveal>
-            <p className="eyebrow hero-eyebrow">{l(t, "eyebrow", lang)}</p>
-          </Reveal>
-
           <h1 className="hero-title">
             <Reveal as="span" className="hero-title-line hero-title-line--1">
               {l(t, "title1", lang)}
@@ -64,7 +60,7 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
                 alt={l(t, "photoLabel", lang)}
                 fill
                 className="hero-visual-photo"
-                sizes="(max-width: 780px) 100vw, 50vw"
+                sizes="(max-width: 900px) 100vw, 50vw"
                 priority
               />
             ) : (
@@ -74,11 +70,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
                 </span>
               </div>
             )}
-            <div className="hero-visual-meta">
-              <span className="hero-visual-meta-label">
-                {l(t, "photoLabel", lang)}
-              </span>
-            </div>
           </div>
         </Reveal>
       </div>
