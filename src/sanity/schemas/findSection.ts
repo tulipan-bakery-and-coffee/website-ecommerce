@@ -30,6 +30,51 @@ export default defineType({
     defineField({ name: "mapLabel_es", title: "Map Label (ES)", type: "string" }),
     defineField({ name: "mapLabel_en", title: "Map Label (EN)", type: "string" }),
     defineField({ name: "mapsUrl", title: "Google Maps URL", type: "string" }),
+    defineField({
+      name: "geoLat",
+      title: "Latitud",
+      type: "number",
+      description: "Para los datos estructurados de Google. Sale del pin en Maps.",
+    }),
+    defineField({
+      name: "geoLng",
+      title: "Longitud",
+      type: "number",
+      description: "Para los datos estructurados de Google. Sale del pin en Maps.",
+    }),
+    defineField({
+      name: "openingHours",
+      title: "Horario legible por maquina",
+      type: "array",
+      description:
+        "Alimenta el JSON-LD que Google usa para mostrar abierto o cerrado. Debe coincidir con el horario de arriba, que es el que lee la persona.",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "days",
+              title: "Dias",
+              type: "array",
+              of: [{ type: "string" }],
+              options: {
+                list: [
+                  { title: "Lunes", value: "Monday" },
+                  { title: "Martes", value: "Tuesday" },
+                  { title: "Miercoles", value: "Wednesday" },
+                  { title: "Jueves", value: "Thursday" },
+                  { title: "Viernes", value: "Friday" },
+                  { title: "Sabado", value: "Saturday" },
+                  { title: "Domingo", value: "Sunday" },
+                ],
+              },
+            }),
+            defineField({ name: "opens", title: "Abre (HH:MM)", type: "string" }),
+            defineField({ name: "closes", title: "Cierra (HH:MM)", type: "string" }),
+          ],
+        },
+      ],
+    }),
     defineField({ name: "mapEmbedUrl", title: "Google Maps Embed URL (iframe src)", type: "string", description: "Paste the src URL from Google Maps embed iframe" }),
   ],
   preview: {

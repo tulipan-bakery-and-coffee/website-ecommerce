@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import UmamiTracker from "@/components/UmamiTracker";
+import { SITE_URL } from "@/lib/site";
 
-const title = "Tulipán 58 · el café que camina contigo";
+// El eslogan solo no lo busca nadie. Nombra la categoria y la zona
+// sin dejar de sonar a la marca.
+const title = "Tulipán 58 · Café de especialidad en Gran Santa Fe, Mérida";
 const description =
-  "Café de especialidad en Gran Santa Fe, Mérida. Tostamos nuestro propio grano. Miércoles a sábado de 7:00 a 11:30, domingo de 8:00 a 12:00.";
-const url = "https://tulipan.mx";
+  "Cafetería de especialidad en Gran Santa Fe, Caucel, Mérida. Tostamos nuestro propio grano. Miércoles a sábado de 7:00 a 11:30, domingo de 8:00 a 12:00.";
+const url = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title,
   description,
+  alternates: { canonical: "/" },
   icons: {
     icon: "/assets/favicon.ico",
   },

@@ -121,6 +121,9 @@ export interface FindSection {
   mapLabel_es: string;
   mapLabel_en: string;
   mapsUrl: string;
+  geoLat?: number;
+  geoLng?: number;
+  openingHours?: { days: string[]; opens: string; closes: string }[];
   mapEmbedUrl?: string;
 }
 
@@ -228,7 +231,8 @@ const findSectionQuery = `*[_type == "findSection"][0]{
   contactLabel_es, contactLabel_en,
   instagram, whatsapp, website,
   ctaMap_es, ctaMap_en, ctaWa_es, ctaWa_en,
-  mapLabel_es, mapLabel_en, mapsUrl, mapEmbedUrl
+  mapLabel_es, mapLabel_en, mapsUrl, mapEmbedUrl,
+  geoLat, geoLng, openingHours
 }`;
 
 const footerSectionQuery = `*[_type == "footerSection"][0]{

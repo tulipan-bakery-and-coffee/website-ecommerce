@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Lang, PrivacyContent, SiteContent } from "@/types/content";
 import Nav from "./Nav";
 import Ticker from "./Ticker";
@@ -37,6 +37,13 @@ export default function HomePage({
   const [lang, setLang] = useState<Lang>("es");
 
   const bannerText = lang === "es" ? cateringBanner_es : cateringBanner_en;
+
+  // El <html lang> se renderiza en el servidor y no sabe del toggle. Sin
+  // esto, un lector de pantalla en modo ingles anuncia el contenido
+  // ingles con pronunciacion espanola.
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <>

@@ -41,6 +41,7 @@
   --color-roso-pausar: #632E2E;
   --color-cremita-cafe: #FFEDBB;
   --color-verde-caminante: #787C41;
+  --color-verde-caminante-deep: #5F6234;
   --color-tulipan: #CCDBF8;
   --color-cafe-quemado: #333333;
 
@@ -457,7 +458,8 @@ main:focus {
   padding: 4px 10px;
   border-radius: 999px;
   color: var(--color-cafe-quemado);
-  opacity: 0.55;
+  /* 0.55 daba 3.08:1 sobre cremita. Es un control, no decoracion. */
+  opacity: 0.78;
   transition: background 240ms, color 240ms, opacity 240ms,
     transform 140ms ease-out;
 }
@@ -552,13 +554,19 @@ main:focus {
 /* ── Ticker ────────────────────────────────────────────────────────── */
 
 .ticker {
-  background: var(--color-verde-caminante);
+  /* Cremita sobre verde-caminante da 3.80:1 a 11px, por debajo del
+     minimo AA. El verde profundo ya existe como token (es el hover de
+     .btn-verde) y sube a 5.51:1 sin inventar un color nuevo. */
+  background: var(--color-verde-caminante-deep);
   color: var(--color-cremita-cafe);
   padding: 10px 0;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 237, 187, 0.15);
 }
 
+/* El cremita al 100% sobre verde da 3.80:1 a 10px. Es aria-hidden, asi
+   que queda fuera del criterio, pero sigue siendo texto que alguien
+   intenta leer: se compensa con peso y tamano. */
 .ticker-track {
   display: flex;
   gap: 48px;
@@ -566,7 +574,7 @@ main:focus {
   width: max-content;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -1596,7 +1604,8 @@ main:focus {
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 237, 187, 0.5);
+  /* 0.5 daba 3.97:1 sobre cafe quemado */
+  color: rgba(255, 237, 187, 0.72);
   margin-bottom: 16px;
   margin-top: 0;
 }
@@ -1644,7 +1653,8 @@ main:focus {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 237, 187, 0.55);
+  /* 0.55 daba 4.46:1, justo por debajo del minimo AA */
+  color: rgba(255, 237, 187, 0.7);
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -1754,13 +1764,20 @@ main:focus {
   color: var(--color-cafe-quemado);
 }
 
+.footer-legal-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .footer-legal-link {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 237, 187, 0.55);
+  color: rgba(255, 237, 187, 0.7);
   border-bottom: 1px solid currentColor;
   padding-bottom: 1px;
   transition: color 240ms;

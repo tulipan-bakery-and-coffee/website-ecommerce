@@ -99,9 +99,14 @@ export default function Footer({ t, nav, lang, setLang, privacy }: FooterProps) 
       </div>
 
       <div className="footer-bottom container">
-        <p className="footer-legal">
-          {l(t, "legal", lang)} <PrivacyNotice t={privacy} lang={lang} />
-        </p>
+        {/* El <dialog> no puede vivir dentro de un <p>: este solo admite
+            contenido de frase y aquello es contenido de flujo. HTML
+            invalido, y rompia la hidratacion de React (error #418). El
+            grupo es un <div> para que el dialogo sea hijo legitimo. */}
+        <div className="footer-legal-group">
+          <p className="footer-legal">{l(t, "legal", lang)}</p>
+          <PrivacyNotice t={privacy} lang={lang} />
+        </div>
         <p className="footer-credit">{l(t, "credit", lang)}</p>
       </div>
     </footer>

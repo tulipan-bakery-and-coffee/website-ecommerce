@@ -157,6 +157,12 @@ export const fallbackContent: SiteContent = {
     mapLabel_es: "Mapa · Tulipán 58",
     mapLabel_en: "Map · Tulipán 58",
     mapsUrl: "https://maps.app.goo.gl/ELxWYTt9cCSeqwJv9",
+    geoLat: 21.0246531,
+    geoLng: -89.686376,
+    openingHours: [
+      { days: ["Wednesday", "Thursday", "Friday", "Saturday"], opens: "07:00", closes: "11:30" },
+      { days: ["Sunday"], opens: "08:00", closes: "12:00" },
+    ],
   },
   footer: {
     tagline_es: "el cafe que camina contigo.",
