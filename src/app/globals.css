@@ -1666,6 +1666,168 @@ main:focus {
   }
 }
 
+/* ── Aviso de privacidad ───────────────────────────────────────────── */
+/* Bloque de color pleno, no tarjeta flotante: el sistema prohibe
+   sombras en reposo y un modal con sombra las meteria en la pieza mas
+   visible. La separacion la da el color, como en toda la pagina. */
+
+.privacy {
+  width: min(680px, calc(100vw - 2 * var(--gutter)));
+  max-height: min(80vh, 760px);
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-cafe-quemado);
+  color: var(--color-cremita-cafe);
+  overflow: hidden;
+  /* El preflight de Tailwind resetea margin: 0 en todo y se lleva por
+     delante el margin: auto con el que <dialog> se centra solo. */
+  margin: auto;
+  /* El disparador vive en .footer-bottom, que impone mayusculas y
+     tracking de 0.14em. Sin esto el aviso entero sale gritado. */
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.privacy::backdrop {
+  background: rgba(51, 51, 51, 0.55);
+}
+
+.privacy-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: inherit;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.privacy-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.privacy-body p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: 62ch;
+  margin: 0 0 16px;
+}
+
+.privacy-body p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 237, 187, 0.25);
+}
+
+.privacy-updated {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 237, 187, 0.6);
+}
+
+.privacy-close {
+  border-color: var(--color-cremita-cafe);
+  color: var(--color-cremita-cafe);
+}
+
+.privacy-close:hover {
+  background-color: var(--color-cremita-cafe);
+  color: var(--color-cafe-quemado);
+}
+
+.footer-legal-link {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 237, 187, 0.55);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 240ms;
+}
+
+.footer-legal-link:hover {
+  color: var(--color-cremita-cafe);
+}
+
+@media (max-width: 560px) {
+  .privacy-inner {
+    padding: 28px 20px;
+  }
+  .privacy-title {
+    font-size: 26px;
+  }
+}
+
+/* ── 404 ───────────────────────────────────────────────────────────── */
+
+.nf {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  background: var(--color-cremita-cafe);
+}
+
+.nf-logo {
+  width: 72px;
+  height: auto;
+}
+
+.nf-code {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-verde-caminante);
+}
+
+.nf-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--color-cafe-quemado);
+  max-width: 16ch;
+  margin: 0;
+}
+
+.nf-title a {
+  color: var(--color-roso-pausar);
+  border-bottom: 2px solid currentColor;
+}
+
+.nf-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 /* ── Reduced Motion ────────────────────────────────────────────────── */
 /* Menos y mas suave, no cero: se conserva todo lo que es opacidad
    porque sigue ayudando a entender el cambio. Se retira el

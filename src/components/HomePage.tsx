@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Lang, SiteContent } from "@/types/content";
+import type { Lang, PrivacyContent, SiteContent } from "@/types/content";
 import Nav from "./Nav";
 import Ticker from "./Ticker";
 import Hero from "./Hero";
@@ -12,10 +12,13 @@ import Events from "./Events";
 import Statement from "./Statement";
 import Find from "./Find";
 import Footer from "./Footer";
+import FallbackBeacon from "./FallbackBeacon";
 import { l } from "@/types/content";
 
 interface HomePageProps {
   content: SiteContent;
+  privacy: PrivacyContent;
+  sanityFailed?: boolean;
   cateringBanner_es?: string;
   cateringBanner_en?: string;
   heroImageUrl?: string;
@@ -24,6 +27,8 @@ interface HomePageProps {
 
 export default function HomePage({
   content,
+  privacy,
+  sanityFailed = false,
   cateringBanner_es = "catering y eventos · dos semanas de anticipacion · escribenos",
   cateringBanner_en = "catering & events · two weeks ahead · write to us",
   heroImageUrl,
@@ -35,6 +40,7 @@ export default function HomePage({
 
   return (
     <>
+      {sanityFailed ? <FallbackBeacon /> : null}
       <a className="skip-link" href="#contenido">
         {lang === "es" ? "Saltar al contenido" : "Skip to content"}
       </a>
@@ -49,7 +55,7 @@ export default function HomePage({
         <Statement t={content.statement} lang={lang} />
         <Find t={content.find} lang={lang} />
       </main>
-      <Footer t={content.footer} nav={content.nav} lang={lang} setLang={setLang} />
+      <Footer t={content.footer} nav={content.nav} lang={lang} setLang={setLang} privacy={privacy} />
     </>
   );
 }

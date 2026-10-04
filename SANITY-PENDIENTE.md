@@ -88,6 +88,18 @@ Los de Experience y Events ya no se renderizan, pero sus campos siguen existiend
 
 ---
 
+## 7. Aviso de Privacidad → publicar el documento
+
+Hay un tipo nuevo en el esquema, **Aviso de Privacidad**. Mientras no exista el documento publicado, el sitio usa el texto de respaldo que está en `src/lib/fallback-content.ts` y funciona igual.
+
+Conviene publicarlo igual: el punto de que viva en Sanity es que puedas editarlo sin tocar código cuando cambie lo que mide Umami o cuando aparezca otro servicio de terceros.
+
+Campos: etiqueta del enlace, título, cuerpo y etiqueta de cerrar, en ES y EN, más la fecha de última actualización. El cuerpo separa párrafos por línea en blanco.
+
+Para arrancar, copia el texto del respaldo y ponle acentos: el de respaldo está sin ellos.
+
+---
+
 ## Decisión de voz, para todo lo que se escriba de aquí en adelante
 
 Capitalización normal con acentos: `Encuéntranos`, `Dirección`, `El café que camina contigo.` No minúsculas sin acentos.

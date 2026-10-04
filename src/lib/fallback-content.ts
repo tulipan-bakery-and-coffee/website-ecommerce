@@ -1,4 +1,15 @@
-import type { SiteContent } from "@/types/content";
+import type { PrivacyContent, SiteContent } from "@/types/content";
+
+export const fallbackPrivacy: PrivacyContent = {
+  linkLabel_es: "Aviso de privacidad",
+  linkLabel_en: "Privacy notice",
+  title_es: "Aviso de privacidad",
+  title_en: "Privacy notice",
+  body_es: 'Este sitio mide visitas con Umami, una herramienta de analitica sin cookies. No instalamos cookies de seguimiento ni creamos un perfil tuyo.\n\nSe registra de forma agregada y anonima: la pagina que ves, desde donde llegaste, el tipo de dispositivo, el pais y que botones se tocan. La direccion IP se usa para deducir el pais y no se almacena.\n\nNo pedimos ni guardamos datos personales: no hay registro, carrito ni formularios. Si nos escribes por WhatsApp, esa conversacion se rige por las politicas de WhatsApp, no por este sitio.\n\nLos enlaces a Instagram, Facebook, TikTok y Google Maps te llevan a servicios de terceros con sus propias politicas.\n\nPara cualquier duda, escribenos por WhatsApp al +52 1 984 469 6732.',
+  body_en: "This site measures visits with Umami, a cookieless analytics tool. We do not set tracking cookies and we do not build a profile of you.\n\nWhat is recorded, aggregated and anonymous: the page you view, where you arrived from, device type, country, and which buttons are tapped. Your IP address is used to infer the country and is not stored.\n\nWe do not ask for or keep personal data: there is no sign-up, no cart and no forms. If you message us on WhatsApp, that conversation is governed by WhatsApp's policies, not by this site.\n\nLinks to Instagram, Facebook, TikTok and Google Maps take you to third-party services with their own policies.\n\nAny questions, write to us on WhatsApp at +52 1 984 469 6732.",
+  closeLabel_es: "Cerrar",
+  closeLabel_en: "Close",
+};
 
 export const fallbackContent: SiteContent = {
   nav: {

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { Lang, FooterContent, NavContent } from "@/types/content";
+import PrivacyNotice from "./PrivacyNotice";
+import type { Lang, FooterContent, NavContent, PrivacyContent } from "@/types/content";
 import { l } from "@/types/content";
 
 interface FooterProps {
@@ -7,9 +8,10 @@ interface FooterProps {
   nav: NavContent;
   lang: Lang;
   setLang: (lang: Lang) => void;
+  privacy: PrivacyContent;
 }
 
-export default function Footer({ t, nav, lang, setLang }: FooterProps) {
+export default function Footer({ t, nav, lang, setLang, privacy }: FooterProps) {
   return (
     <footer className="footer">
       <div className="footer-top container">
@@ -97,7 +99,9 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
       </div>
 
       <div className="footer-bottom container">
-        <p className="footer-legal">{l(t, "legal", lang)}</p>
+        <p className="footer-legal">
+          {l(t, "legal", lang)} <PrivacyNotice t={privacy} lang={lang} />
+        </p>
         <p className="footer-credit">{l(t, "credit", lang)}</p>
       </div>
     </footer>
