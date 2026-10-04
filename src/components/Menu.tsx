@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 import type { Lang, MenuContent, MenuItem } from "@/types/content";
 import { l } from "@/types/content";
@@ -14,6 +14,29 @@ interface MenuProps {
 
 export default function Menu({ t, lang }: MenuProps) {
   const [filter, setFilter] = useState<Filter>("all");
+  const [swapping, setSwapping] = useState(false);
+  const swapTimer = useRef<number | null>(null);
+
+  // El cambio de filtro teletransportaba los platillos. Se apaga la
+  // retícula, se intercambia el contenido y vuelve. Transición, no
+  // keyframes, para que un segundo clic retome desde donde va.
+  function pickFilter(next: Filter) {
+    if (next === filter) return;
+    if (swapTimer.current !== null) window.clearTimeout(swapTimer.current);
+    setSwapping(true);
+    swapTimer.current = window.setTimeout(() => {
+      setFilter(next);
+      setSwapping(false);
+      swapTimer.current = null;
+    }, 120);
+  }
+
+  useEffect(
+    () => () => {
+      if (swapTimer.current !== null) window.clearTimeout(swapTimer.current);
+    },
+    [],
+  );
 
   const filtered: MenuItem[] =
     filter === "all"
@@ -40,7 +63,7 @@ export default function Menu({ t, lang }: MenuProps) {
             <button
               key={f.key}
               className={`menu-filter ${filter === f.key ? "menu-filter--active" : ""}`}
-              onClick={() => setFilter(f.key)}
+              onClick={() => pickFilter(f.key)}
               data-umami-event={`menu-filter-${f.key}`}
             >
               {l(t, f.labelField, lang)}
@@ -48,7 +71,7 @@ export default function Menu({ t, lang }: MenuProps) {
           ))}
         </Reveal>
 
-        <div className="menu-grid">
+        <div className={`menu-grid ${swapping ? "menu-grid--swapping" : ""}`}>
           {filtered.map((item, i) => (
             <Reveal key={i} delay={(i % 3) + 1} className="menu-item" data-umami-event={`menu-item-view-${l(item, "name", lang).replace(/\s+/g, "-")}`}>
               <div className="menu-item-head">

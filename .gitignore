@@ -46,3 +46,7 @@ next-env.d.ts
 .claude/*
 .claude/
 .vercel
+
+# impeccable (estado local, no compartir)
+.impeccable/config.local.json
+.impeccable/hook.cache.json

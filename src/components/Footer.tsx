@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { Lang, FooterContent, NavContent } from "@/types/content";
+import PrivacyNotice from "./PrivacyNotice";
+import type { Lang, FooterContent, NavContent, PrivacyContent } from "@/types/content";
 import { l } from "@/types/content";
 
 interface FooterProps {
@@ -7,9 +8,10 @@ interface FooterProps {
   nav: NavContent;
   lang: Lang;
   setLang: (lang: Lang) => void;
+  privacy: PrivacyContent;
 }
 
-export default function Footer({ t, nav, lang, setLang }: FooterProps) {
+export default function Footer({ t, nav, lang, setLang, privacy }: FooterProps) {
   return (
     <footer className="footer">
       <div className="footer-top container">
@@ -28,7 +30,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-col-title">{l(t, "navLabel", lang)}</h4>
+          <h2 className="footer-col-title">{l(t, "navLabel", lang)}</h2>
           <ul className="footer-list">
             {nav.links.map((link) => (
               <li key={link.key}>
@@ -41,7 +43,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-col-title">{l(t, "socialLabel", lang)}</h4>
+          <h2 className="footer-col-title">{l(t, "socialLabel", lang)}</h2>
           <ul className="footer-list">
             <li>
               <a href="https://instagram.com/tulipan58mid" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-social-instagram">
@@ -67,7 +69,7 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-col-title">{l(t, "linksLabel", lang)}</h4>
+          <h2 className="footer-col-title">{l(t, "linksLabel", lang)}</h2>
           <ul className="footer-list">
             <li>
               <a href="https://tulipan.mx" className="footer-link" target="_blank" rel="noopener noreferrer" data-umami-event="footer-link-website">
@@ -97,7 +99,9 @@ export default function Footer({ t, nav, lang, setLang }: FooterProps) {
       </div>
 
       <div className="footer-bottom container">
-        <p className="footer-legal">{l(t, "legal", lang)}</p>
+        <p className="footer-legal">
+          {l(t, "legal", lang)} <PrivacyNotice t={privacy} lang={lang} />
+        </p>
         <p className="footer-credit">{l(t, "credit", lang)}</p>
       </div>
     </footer>

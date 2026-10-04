@@ -13,9 +13,6 @@ export default function Events({ t, lang }: EventsProps) {
     <section className="section events" id="events">
       <div className="container">
         <div className="section-head">
-          <Reveal>
-            <p className="eyebrow">{l(t, "eyebrow", lang)}</p>
-          </Reveal>
           <Reveal delay={1}>
             <h2 className="section-head-title">{l(t, "title", lang)}</h2>
           </Reveal>

@@ -14,10 +14,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
     <section className="hero" id="hero">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <Reveal>
-            <p className="eyebrow hero-eyebrow">{l(t, "eyebrow", lang)}</p>
-          </Reveal>
-
           <h1 className="hero-title">
             <Reveal as="span" className="hero-title-line hero-title-line--1">
               {l(t, "title1", lang)}
@@ -41,9 +37,18 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
             <a href="#menu" className="btn btn-bordo" data-umami-event="hero-cta-ver-menu">
               {l(t, "ctaPrimary", lang)}
             </a>
-            <a href="#about" className="btn btn-ghost" data-umami-event="hero-cta-como-llegar">
+            <a href="#find" className="btn btn-ghost" data-umami-event="hero-cta-como-llegar">
               {l(t, "ctaSecondary", lang)}
             </a>
+            {/* Tercer nivel en texto plano: el organizador de evento no
+                tenia ninguna superficie en el primer pantallazo, y es la
+                linea de mayor ticket. Un tercer boton relleno seria peor
+                que el problema. */}
+            {l(t, "ctaTertiary", lang) ? (
+              <a href="#events" className="link-tertiary" data-umami-event="hero-cta-eventos">
+                {l(t, "ctaTertiary", lang)}
+              </a>
+            ) : null}
           </Reveal>
         </div>
 
@@ -64,7 +69,7 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
                 alt={l(t, "photoLabel", lang)}
                 fill
                 className="hero-visual-photo"
-                sizes="(max-width: 780px) 100vw, 50vw"
+                sizes="(max-width: 900px) 100vw, 50vw"
                 priority
               />
             ) : (
@@ -74,11 +79,6 @@ export default function Hero({ t, lang, imageUrl }: HeroProps) {
                 </span>
               </div>
             )}
-            <div className="hero-visual-meta">
-              <span className="hero-visual-meta-label">
-                {l(t, "photoLabel", lang)}
-              </span>
-            </div>
           </div>
         </Reveal>
       </div>

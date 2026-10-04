@@ -10,7 +10,7 @@ interface StatementProps {
 
 export default function Statement({ t, lang }: StatementProps) {
   return (
-    <section className="statement">
+    <section className="statement" aria-label={lang === "es" ? "Manifiesto" : "Manifesto"}>
       <Image
         src="/assets/isotipo-dark.webp"
         alt=""

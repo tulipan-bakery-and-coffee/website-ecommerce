@@ -25,6 +25,8 @@ export interface HeroSection {
   ctaPrimary_en: string;
   ctaSecondary_es: string;
   ctaSecondary_en: string;
+  ctaTertiary_es?: string;
+  ctaTertiary_en?: string;
   photoLabel_es: string;
   photoLabel_en: string;
   heroImage: SanityImage;
@@ -142,6 +144,18 @@ interface SanityImage {
   hotspot?: { x: number; y: number; height: number; width: number };
 }
 
+export interface PrivacyNotice {
+  linkLabel_es: string;
+  linkLabel_en: string;
+  title_es: string;
+  title_en: string;
+  body_es: string;
+  body_en: string;
+  updated?: string;
+  closeLabel_es: string;
+  closeLabel_en: string;
+}
+
 export interface AllContent {
   siteSettings: SiteSettings | null;
   heroSection: HeroSection | null;
@@ -152,6 +166,7 @@ export interface AllContent {
   statementSection: StatementSection | null;
   findSection: FindSection | null;
   footerSection: FooterSection | null;
+  privacyNotice: PrivacyNotice | null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -166,6 +181,7 @@ const heroSectionQuery = `*[_type == "heroSection"][0]{
   foot_es, foot_en,
   ctaPrimary_es, ctaPrimary_en,
   ctaSecondary_es, ctaSecondary_en,
+  ctaTertiary_es, ctaTertiary_en,
   photoLabel_es, photoLabel_en,
   heroImage
 }`;
@@ -264,6 +280,18 @@ export async function getFooterSection(): Promise<FooterSection | null> {
   return client.fetch<FooterSection | null>(footerSectionQuery);
 }
 
+const privacyNoticeQuery = `*[_type == "privacyNotice"][0]{
+  linkLabel_es, linkLabel_en,
+  title_es, title_en,
+  body_es, body_en,
+  updated,
+  closeLabel_es, closeLabel_en
+}`;
+
+export async function getPrivacyNotice(): Promise<PrivacyNotice | null> {
+  return client.fetch<PrivacyNotice | null>(privacyNoticeQuery);
+}
+
 export async function getAllContent(): Promise<AllContent> {
   const [
     siteSettings,
@@ -275,6 +303,7 @@ export async function getAllContent(): Promise<AllContent> {
     statementSection,
     findSection,
     footerSection,
+    privacyNotice,
   ] = await Promise.all([
     getSiteSettings(),
     getHeroSection(),
@@ -285,6 +314,7 @@ export async function getAllContent(): Promise<AllContent> {
     getStatementSection(),
     getFindSection(),
     getFooterSection(),
+    getPrivacyNotice(),
   ]);
 
   return {
@@ -297,5 +327,6 @@ export async function getAllContent(): Promise<AllContent> {
     statementSection,
     findSection,
     footerSection,
+    privacyNotice,
   };
 }

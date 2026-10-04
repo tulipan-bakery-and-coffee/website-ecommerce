@@ -39,6 +39,8 @@ export interface HeroContent {
   ctaPrimary_en: string;
   ctaSecondary_es: string;
   ctaSecondary_en: string;
+  ctaTertiary_es?: string;
+  ctaTertiary_en?: string;
   photoLabel_es: string;
   photoLabel_en: string;
 }
@@ -201,6 +203,18 @@ export interface FooterContent {
 }
 
 /* ── Aggregate ────────────────────────────────────────────────────── */
+
+export interface PrivacyContent {
+  linkLabel_es: string;
+  linkLabel_en: string;
+  title_es: string;
+  title_en: string;
+  body_es: string;
+  body_en: string;
+  updated?: string;
+  closeLabel_es: string;
+  closeLabel_en: string;
+}
 
 export interface SiteContent {
   nav: NavContent;

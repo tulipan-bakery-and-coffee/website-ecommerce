@@ -1,0 +1,21 @@
+{
+  "buildPath": "comp",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "display",
+        "createdAt": "2026-10-04T19:53:39.082Z",
+        "reason": "alias de Satori para Halenoir Bold, cargada desde public/fonts en opengraph-image.tsx"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "mono",
+        "createdAt": "2026-10-04T19:53:39.171Z",
+        "reason": "alias de Satori para Basis Grotesque Mono Pro, cargada desde public/fonts en opengraph-image.tsx"
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import type { Lang, NavContent } from "@/types/content";
 import { l } from "@/types/content";
@@ -11,8 +11,47 @@ interface NavProps {
   t: NavContent;
 }
 
+/**
+ * Marca la seccion visible en el nav. El rootMargin recorta por arriba
+ * la altura del nav sticky y por abajo la mayor parte del viewport, asi
+ * que "activa" es la seccion que ocupa la franja superior, no la que
+ * apenas asoma por el borde inferior.
+ */
+function useActiveSection(keys: string[]) {
+  const [active, setActive] = useState<string | null>(null);
+
+  useEffect(() => {
+    const sections = keys
+      .map((key) => document.getElementById(key))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
+    const visible = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        }
+        // En orden de documento: gana la primera visible, no la ultima
+        // que haya disparado el callback.
+        const first = sections.find((el) => visible.has(el.id));
+        setActive(first ? first.id : null);
+      },
+      { rootMargin: "-80px 0px -55% 0px" },
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [keys]);
+
+  return active;
+}
+
 export default function Nav({ lang, setLang, t }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const keys = useMemo(() => t.links.map((link) => link.key), [t.links]);
+  const active = useActiveSection(keys);
 
   return (
     <nav className="nav">
@@ -34,8 +73,10 @@ export default function Nav({ lang, setLang, t }: NavProps) {
             <li key={link.key}>
               <a
                 href={`#${link.key}`}
-                className="nav-link"
+                className={`nav-link ${active === link.key ? "nav-link--active" : ""}`}
+                aria-current={active === link.key ? "true" : undefined}
                 data-umami-event={`nav-link-${link.key}`}
+                onClick={() => setMobileOpen(false)}
               >
                 {l(link, "label", lang)}
               </a>
@@ -68,9 +109,10 @@ export default function Nav({ lang, setLang, t }: NavProps) {
           </a>
 
           <button
-            className="nav-hamburger"
+            className={`nav-hamburger ${mobileOpen ? "nav-hamburger--open" : ""}`}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
             data-umami-event="nav-mobile-menu-toggle"
           >
             <span className="nav-hamburger-line" />

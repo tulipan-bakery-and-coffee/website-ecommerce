@@ -15,9 +15,11 @@ export default function Find({ t, lang }: FindProps) {
           <Reveal>
             <p className="eyebrow">{l(t, "eyebrow", lang)}</p>
           </Reveal>
-          <Reveal delay={1}>
-            <h2 className="section-head-title">{l(t, "title", lang)}</h2>
-          </Reveal>
+          {l(t, "title", lang) ? (
+            <Reveal delay={1}>
+              <h2 className="section-head-title">{l(t, "title", lang)}</h2>
+            </Reveal>
+          ) : null}
         </div>
 
         <div className="find-body">

@@ -7,6 +7,7 @@ import eventsSection from "./eventsSection";
 import statementSection from "./statementSection";
 import findSection from "./findSection";
 import footerSection from "./footerSection";
+import privacyNotice from "./privacyNotice";
 
 export const schemaTypes = [
   siteSettings,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   statementSection,
   findSection,
   footerSection,
+  privacyNotice,
 ];
