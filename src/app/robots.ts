@@ -20,10 +20,18 @@ import { SITE_URL } from "@/lib/site";
  * - Anthropic:  privacy.anthropic.com/en/articles/8896518
  * - Google:     developers.google.com/crawling/docs/crawlers-fetchers
  *
- * Deliberadamente NO se añade /llms.txt. Es una propuesta experimental,
- * no un estándar entre proveedores, y nada demuestra que un producto
- * concreto lo lea. Va por detrás de rastreabilidad, HTML semántico,
- * metadatos correctos y contenido útil, que es donde está el retorno.
+ * /llms.txt y /en/llms.txt existen desde ahora, derivados de Sanity
+ * por src/lib/llms-txt.ts. El juicio sobre la propuesta no cambia: no es un
+ * estándar acordado entre proveedores y nada garantiza que un producto
+ * concreto lo lea, así que sigue por detrás de rastreabilidad, HTML
+ * semántico, JSON-LD y contenido útil. Lo que cambió es el cálculo:
+ * cuesta poco y el fallo que evita, un asistente inventando el horario
+ * de una cafetería que solo abre por la mañana, lo paga un cliente que
+ * llega a la puerta cerrada.
+ *
+ * No se declara en robots.txt. La directiva Sitemap está definida para
+ * sitemaps XML; colgar ahí otra cosa es inventar sintaxis. Quien busque
+ * /llms.txt lo busca en su ruta por convención.
  */
 
 // /studio es el CMS: no hay nada que indexar y sirve una app pesada que
