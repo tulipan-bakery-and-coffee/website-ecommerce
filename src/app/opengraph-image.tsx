@@ -18,7 +18,10 @@ export const contentType = "image/png";
  * -donde y cuando- va en el dato, no en el eslogan.
  */
 export default async function Image() {
-  const fontsDir = join(process.cwd(), "public", "fonts");
+  /* Satori no lee woff2. Las caras que sirve el navegador viven
+     subconjuntadas en public/fonts; estas dos son las originales
+     completas, fuera de public para que nadie las descargue. */
+  const fontsDir = join(process.cwd(), "src", "assets", "fonts");
   const [display, mono] = await Promise.all([
     readFile(join(fontsDir, "Halenoir-Bold.otf")),
     readFile(join(fontsDir, "BasisGrotesqueMonoPro-Bold.ttf")),

@@ -121,7 +121,7 @@ components:
 
 **Creative North Star: "La Caminata de la Mañana"**
 
-El sistema está organizado como un trayecto, no como una composición. Tulipán 58 abre de 7:00 a 11:30 y se declara acompañante, no destino: el café que tomas de camino, de vuelta o en la pausa. La página traduce eso literalmente. El ticker corre sin detenerse en la parte superior. Las secciones no son tarjetas sobre un fondo común sino bloques de color a sangre que se suceden como cuadras —cremita, bordo, cremita, oscuro, verde— y cada cambio de color es una parada. El scroll es el paso; el `reveal` de 700ms es lo que alcanza a entrar en foco mientras caminas.
+El sistema está organizado como un trayecto, no como una composición. Tulipán 58 abre de 7:00 a 11:30 y se declara acompañante, no destino: el café que tomas de camino, de vuelta o en la pausa. La página traduce eso literalmente. Las secciones no son tarjetas sobre un fondo común sino bloques de color a sangre que se suceden como cuadras —cremita, bordo, cremita, oscuro, verde— y cada cambio de color es una parada. El scroll es el paso; el `reveal` de 700ms es lo que alcanza a entrar en foco mientras caminas.
 
 La atmósfera es cálida y de barrio, viva, y al mismo tiempo pausada. Esas tres cosas no se contradicen aquí porque cada una vive en una capa distinta: la calidez está en el papel (fondo cremita en lugar de blanco, paleta tierra completa salvo un acento), el carácter está en la escala tipográfica (titulares de hasta 160px, pleno sangrado, sin miedo) y la pausa está en el aire y en la ausencia total de ruido —ni una sombra, ni un gradiente, ni una textura.
 
@@ -140,13 +140,13 @@ La especificidad viene del empaque. Las bolsas de café imprimen proceso, regió
 Paleta de tierra tostada completa, con un solo frío deliberado. Ningún color es neutro de sistema: los cinco vienen del producto o del local.
 
 ### Primary
-- **Bordo Pausar** (`#632E2E`): el acento de la marca. Viste la sección Menu completa, el visual del Hero, el visual de Events, el pin del mapa y los botones primarios. Es el color que dice "esto es Tulipán".
+- **Bordo Pausar** (`#632E2E`): el acento de la marca. Viste la sección Menu completa, el visual del Hero, el visual de Events y los botones primarios. Es el color que dice "esto es Tulipán".
 
 ### Secondary
-- **Verde Caminante** (`#787C41`): el verde oliva del isotipo. Viste la sección Statement completa y aparece en pequeño como color de etiqueta en `.info-label` y `.stat-label`. Su variante profunda `#5F6234` viste la barra del Ticker y es el hover de `.btn-verde`: cremita sobre el verde claro da 3.80:1 a 11px, por debajo del mínimo AA, y sobre el profundo sube a 5.51:1. Es el único color que trabaja a dos escalas opuestas: superficie completa y texto de 10px.
+- **Verde Caminante** (`#787C41`): el verde oliva del isotipo. Viste la sección Statement completa y aparece en pequeño como color de etiqueta en `.info-label` y `.stat-label`. Su variante profunda `#5F6234` es el hover de `.btn-verde` y la reserva obligatoria en cuanto haya texto pequeño sobre verde: cremita sobre el verde claro da 3.80:1 a 11px, por debajo del mínimo AA, y sobre el profundo sube a 5.51:1.
 
 ### Tertiary
-- **Azul Tulipán** (`#CCDBF8`): el único frío, y el único que no viene del café. Fondo de una tarjeta de Experience y del contenedor del mapa.
+- **Azul Tulipán** (`#CCDBF8`): el único frío, y el único que no viene del café. Fondo de una tarjeta de Experience, y hoy su único uso: el contenedor del mapa dejó de vestirlo porque a 420px de alto se leía como bloque roto mientras el iframe carga en diferido.
 
 ### Neutral
 - **Cremita Café** (`#FFEDBB`): el papel. Fondo base de `html`/`body` y de las secciones About, Experience y Find, y color de texto sobre cualquier superficie oscura. No es un neutro frío disfrazado: es cálido y se nota.
@@ -165,7 +165,7 @@ Paleta de tierra tostada completa, con un solo frío deliberado. Ningún color e
 
 **Display Font:** Halenoir Bold (con Georgia, serif como respaldo)
 **Body Font:** Basis Grotesque Mono Pro (con `ui-monospace`, monospace como respaldo), en Light 300, Regular 400 y Bold 700
-**Ambas auto-hospedadas** en `public/fonts/` con `font-display: swap`.
+**Ambas auto-hospedadas** en `public/fonts/` como `woff2` subconjuntado a latin, latin-ext, puntuación y flechas, con `font-display: swap`. Las cuatro caras suman 97 KB. Los originales completos (`.otf`/`.ttf`) viven en `src/assets/fonts/`, fuera de `public/`, porque Satori los necesita para la imagen de Open Graph y no sabe leer woff2: nadie los descarga.
 
 **Character:** Un geométrico pesado y ancho contra un monoespaciado técnico. No hay familia intermedia y esa ausencia es el sistema: todo es o titular o dato. El display da el carácter de barrio —grande, confiado, hablado—; el mono da la precisión de la ficha de tueste. El respaldo serif de Halenoir es un salto real de personalidad, así que la fuente tiene que cargar.
 
@@ -207,12 +207,12 @@ Menu y About no usan separación: dibujan sus propias divisiones con bordes de 1
 
 El sistema es plano en reposo y la profundidad es cromática: se consigue apilando bloques de color de ancho completo, no proyectando sombras. No existe un vocabulario de elevación, ni tarjetas flotando sobre un lienzo, ni jerarquía de superficies.
 
-La sombra solo puede aparecer como respuesta a un estado —hover o focus—, nunca en estático. Hoy el sistema cumple esto de forma estricta: la única `box-shadow` del proyecto es el anillo pulsante del pin del mapa, que es señal de ubicación, no elevación.
+La sombra solo puede aparecer como respuesta a un estado, hover o focus, nunca en estático. Hoy no aparece ni ahí: al retirarse el mapa falso se fue con él el pulso de su pin, que era la única `box-shadow` del proyecto. El archivo tiene cero sombras.
 
 La capa de atmósfera la dan los isotipos: el logotipo se coloca recortado por fuera del contenedor, a 15–25% de opacidad, teñido al color de la superficie con una cadena de filtros CSS. Produce textura y profundidad sin añadir una sola sombra.
 
 ### Shadow Vocabulary
-- **Pulso de ubicación** (`0 0 0 0 → 0 0 0 14px rgba(99,46,46,0.5→0)`, 2s ease-in-out infinito): exclusivo del pin del mapa. No reutilizar como elevación.
+Ninguno. No existe una sola `box-shadow` en el proyecto, y esa cifra es la prueba de la regla, no una casualidad.
 
 ### Named Rules
 
@@ -282,13 +282,10 @@ El patrón que hereda la ficha de tueste del empaque, usado en Find y en las est
 - Valor en Halenoir 22px, o en mono 15px cuando es texto corrido o enlace.
 - Separados por reglas horizontales de 1px, nunca encerrados en una caja.
 
-### Ticker
-Cinta verde de ancho completo bajo el nav. Mono 700 a 10px con tracking 0.22em en cremita, ocho copias del texto separadas por puntos medios, desplazándose `translateX(-50%)` en 38 segundos lineales e infinitos. Marcado `aria-hidden` porque es ritmo, no contenido.
-
 ### Reveal
 Entrada por defecto de todo el contenido. `IntersectionObserver` con umbral de 0.12 y margen inferior de -40px, que añade `.in-view` una sola vez y deja de observar. De `opacity: 0` y `translateY(16px)` a su posición natural en 700ms `ease`, con retrasos escalonados de 100, 200, 300 y 400ms.
 
-**No respeta `prefers-reduced-motion`.** Ni el reveal, ni el ticker, ni la órbita, ni el pulso del pin. Es la deuda de accesibilidad más clara del sistema.
+Respeta `prefers-reduced-motion`: bajo esa preferencia conserva la opacidad y retira el desplazamiento y los retrasos.
 
 ### Páginas internas
 
@@ -341,7 +338,7 @@ La hamburguesa usa `--ease-in-out` y no `--ease-out` porque no entra ni sale: se
 
 Transiciones, nunca keyframes, en todo lo que se puede disparar dos veces seguidas: una transición retoma desde donde va, un keyframe reinicia desde cero.
 
-**La Regla del Reposo Plano se aplica también aquí**: nada se mueve sin que el visitante lo haya provocado, salvo los tres bucles de ritmo (ticker, órbita, pulso del pin), que se apagan bajo `prefers-reduced-motion`.
+**La Regla del Reposo Plano se aplica también aquí**: nada se mueve sin que el visitante lo haya provocado, salvo el único bucle de ritmo que queda, la órbita de Events, que se apaga bajo `prefers-reduced-motion`.
 
 ## Do's and Don'ts
 
@@ -357,7 +354,7 @@ Transiciones, nunca keyframes, en todo lo que se puede disparar dos veces seguid
 
 ### Don't:
 - **Don't** usar `#FFFFFF` ni un gris de sistema como fondo. El papel es cremita `#FFEDBB`.
-- **Don't** añadir una sombra a una superficie en reposo. La profundidad es cromática. La única `box-shadow` del proyecto es el pulso del pin del mapa.
+- **Don't** añadir una sombra, en reposo o en estado. La profundidad es cromática y el proyecto está en cero `box-shadow`: la primera que entre rompe la cuenta.
 - **Don't** usar gradientes, glassmorphism, desenfoques de fondo ni texturas. No existe ni uno en el sistema y su ausencia es la decisión.
 - **Don't** mostrar el azul tulipán `#CCDBF8` más de una vez por pantalla.
 - **Don't** introducir una tercera familia tipográfica ni un peso intermedio. Si no es titular, nombre o cifra, va en mono.
@@ -369,10 +366,13 @@ Transiciones, nunca keyframes, en todo lo que se puede disparar dos veces seguid
 ### Deuda conocida
 
 - `--lh-tight`, `--lh-snug`, `--radius-lg` y `--rail` siguen definidos en `:root` sin que los use nadie. Son tokens muertos: usarlos o borrarlos, no ampliarlos.
-- El mapa decorativo en SVG de `src/components/Find.tsx` dibuja calles del centro de Mérida, que no es la ubicación. Hoy queda oculto porque Sanity entrega `mapEmbedUrl` y el componente prefiere el iframe; si alguien borra ese campo, reaparece un mapa falso del lugar equivocado.
 - El respaldo local de `src/lib/fallback-content.ts` conserva secciones en la voz vieja de minúsculas sin acentos. Solo se ven si Sanity deja de responder.
 
 ### Resuelto desde la primera versión
+
+- El mapa decorativo en SVG se retiró de `Find.tsx`. Sin `mapEmbedUrl` no se dibuja nada: queda la superficie con la etiqueta del lugar. Un mapa falso miente sobre la ubicación; un hueco no.
+- La cinta superior se retiró. Era `aria-hidden`, repetía ocho veces el mismo texto y empujaba el Hero 40px hacia abajo. Lo que decía ya vive en el bullet de anticipación de Events.
+- La flecha del enlace terciario imprimía `92` en pantalla: un escape mal copiado había dejado el carácter de control U+0011 seguido de "92" en lugar de `\2192`.
 
 - El movimiento existe y está acotado. Ver la sección propia.
 - `prefers-reduced-motion` tiene bloque completo, al final del archivo: el orden importa, porque una media query no suma especificidad y declararla antes pierde contra las reglas posteriores.

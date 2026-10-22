@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 /* ── Fonts ─────────────────────────────────────────────────────────── */
+/* woff2 subconjuntado a latin + latin-ext + puntuacion + flechas.
+   Los .otf/.ttf originales pesaban 388 KB; estos cuatro, 97 KB. */
 
 @font-face {
   font-family: "Halenoir";
-  src: url("/fonts/Halenoir-Bold.otf") format("opentype");
+  src: url("/fonts/Halenoir-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -12,7 +14,7 @@
 
 @font-face {
   font-family: "Basis Grotesque Mono Pro";
-  src: url("/fonts/BasisGrotesqueMonoPro-Light.ttf") format("truetype");
+  src: url("/fonts/BasisGrotesqueMonoPro-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -20,7 +22,7 @@
 
 @font-face {
   font-family: "Basis Grotesque Mono Pro";
-  src: url("/fonts/BasisGrotesqueMonoPro-Regular.ttf") format("truetype");
+  src: url("/fonts/BasisGrotesqueMonoPro-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -28,7 +30,7 @@
 
 @font-face {
   font-family: "Basis Grotesque Mono Pro";
-  src: url("/fonts/BasisGrotesqueMonoPro-Bold.ttf") format("truetype");
+  src: url("/fonts/BasisGrotesqueMonoPro-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -316,35 +318,6 @@ main:focus {
 
 /* ── Animations ────────────────────────────────────────────────────── */
 
-@keyframes ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-ticker {
-  animation: ticker 38s linear infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(99, 46, 46, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 14px rgba(99, 46, 46, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(99, 46, 46, 0);
-  }
-}
-
-.animate-pulse-pin {
-  animation: pulse 2s ease-in-out infinite;
-}
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -551,44 +524,6 @@ main:focus {
   }
 }
 
-/* ── Ticker ────────────────────────────────────────────────────────── */
-
-.ticker {
-  /* Cremita sobre verde-caminante da 3.80:1 a 11px, por debajo del
-     minimo AA. El verde profundo ya existe como token (es el hover de
-     .btn-verde) y sube a 5.51:1 sin inventar un color nuevo. */
-  background: var(--color-verde-caminante-deep);
-  color: var(--color-cremita-cafe);
-  padding: 10px 0;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 237, 187, 0.15);
-}
-
-/* El cremita al 100% sobre verde da 3.80:1 a 10px. Es aria-hidden, asi
-   que queda fuera del criterio, pero sigue siendo texto que alguien
-   intenta leer: se compensa con peso y tamano. */
-.ticker-track {
-  display: flex;
-  gap: 48px;
-  white-space: nowrap;
-  width: max-content;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 48px;
-}
-
-.ticker-dot {
-  opacity: 0.6;
-}
-
 /* ── Hero ──────────────────────────────────────────────────────────── */
 
 .hero {
@@ -680,7 +615,7 @@ main:focus {
 }
 
 .link-tertiary::after {
-  content: "92";
+  content: "\2192";
   display: inline-block;
   transition: transform 250ms;
 }
@@ -1495,52 +1430,28 @@ main:focus {
   flex-wrap: wrap;
 }
 
+/* El iframe carga en diferido: lo que se ve antes es esta superficie.
+   Era azul tulipan plano, que a 420px de alto se leia como bloque
+   roto. Cremita con regla de 1px se lee como hueco que se llena. */
 .find-map {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-tulipan);
+  background: rgba(51, 51, 51, 0.04);
+  border: 1px solid rgba(51, 51, 51, 0.15);
   min-height: 420px;
 }
 
-.street-map {
-  position: absolute;
-  inset: 0;
-  color: rgba(51, 51, 51, 0.5);
-}
-
-.map-label {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 3;
+.find-map-label {
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-cafe-quemado);
-  background: var(--color-cremita-cafe);
-  padding: 8px 12px;
-  border-radius: 999px;
-}
-
-.map-pin {
-  position: absolute;
-  top: 45%;
-  left: 46%;
-  z-index: 2;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--color-roso-pausar);
-  color: var(--color-cremita-cafe);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
+  color: rgba(51, 51, 51, 0.65);
 }
 
 @media (max-width: 900px) {
@@ -2131,9 +2042,7 @@ main:focus {
     transform: none;
   }
 
-  .animate-ticker,
-  .animate-orbit,
-  .animate-pulse-pin {
+  .animate-orbit {
     animation: none;
   }
 }

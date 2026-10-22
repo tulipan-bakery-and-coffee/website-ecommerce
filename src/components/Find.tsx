@@ -86,36 +86,10 @@ export default function Find({ t, lang }: FindProps) {
                 title={l(t, "mapLabel", lang)}
               />
             ) : (
-              <>
-                <svg className="street-map" viewBox="0 0 600 500" preserveAspectRatio="none">
-                  <g stroke="currentColor" strokeWidth="1" fill="none" opacity="0.35">
-                    <line x1="0" y1="80" x2="600" y2="80" />
-                    <line x1="0" y1="180" x2="600" y2="180" />
-                    <line x1="0" y1="280" x2="600" y2="280" strokeWidth="2.5" opacity="0.55" />
-                    <line x1="0" y1="380" x2="600" y2="380" />
-                    <line x1="0" y1="460" x2="600" y2="460" />
-                    <line x1="90" y1="0" x2="90" y2="500" />
-                    <line x1="200" y1="0" x2="200" y2="500" />
-                    <line x1="300" y1="0" x2="300" y2="500" strokeWidth="2.5" opacity="0.55" />
-                    <line x1="420" y1="0" x2="420" y2="500" />
-                    <line x1="530" y1="0" x2="530" y2="500" />
-                  </g>
-                  <g fill="currentColor" opacity="0.55" fontFamily='"Basis Grotesque Mono Pro", monospace' fontSize="9" letterSpacing="1.5" style={{ textTransform: 'uppercase' as const }}>
-                    <text x="310" y="75" fontWeight="700">calle tulipan</text>
-                    <text x="305" y="275" fontWeight="400">av. reforma</text>
-                    <text x="12" y="175" fontWeight="400">c. 60</text>
-                    <text x="12" y="375" fontWeight="400">c. 62</text>
-                  </g>
-                  <g fill="currentColor" opacity="0.06">
-                    <rect x="90" y="80" width="110" height="100" />
-                    <rect x="200" y="180" width="100" height="100" />
-                    <rect x="420" y="280" width="110" height="100" />
-                    <rect x="300" y="380" width="120" height="80" />
-                  </g>
-                </svg>
-                <div className="map-pin animate-pulse-pin" aria-label="ubicacion">58</div>
-                <div className="map-label">{l(t, "mapLabel", lang)}</div>
-              </>
+              /* Sin iframe no se dibuja nada: el mapa SVG de relleno
+                 trazaba calles del centro de Merida, que no es la
+                 ubicacion. Un mapa falso miente; un bloque vacio no. */
+              <span className="find-map-label">{l(t, "mapLabel", lang)}</span>
             )}
           </Reveal>
         </div>
