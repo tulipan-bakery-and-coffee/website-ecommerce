@@ -1,6 +1,5 @@
 import type { Lang, PrivacyContent, SiteContent } from "@/types/content";
 import Nav from "./Nav";
-import Ticker from "./Ticker";
 import Hero from "./Hero";
 import About from "./About";
 import Menu from "./Menu";
@@ -10,14 +9,11 @@ import Statement from "./Statement";
 import Find from "./Find";
 import Footer from "./Footer";
 import FallbackBeacon from "./FallbackBeacon";
-import { l } from "@/types/content";
 
 interface HomePageProps {
   content: SiteContent;
   privacy: PrivacyContent;
   sanityFailed?: boolean;
-  cateringBanner_es?: string;
-  cateringBanner_en?: string;
   heroImageUrl?: string;
   aboutImageUrl?: string;
   /** Viene de la ruta, no de un estado: /es es la raiz, /en cuelga. */
@@ -28,14 +24,10 @@ export default function HomePage({
   content,
   privacy,
   sanityFailed = false,
-  cateringBanner_es = "catering y eventos · dos semanas de anticipacion · escribenos",
-  cateringBanner_en = "catering & events · two weeks ahead · write to us",
   heroImageUrl,
   aboutImageUrl,
   lang,
 }: HomePageProps) {
-  const bannerText = lang === "es" ? cateringBanner_es : cateringBanner_en;
-
   return (
     <>
       {sanityFailed ? <FallbackBeacon /> : null}
@@ -43,7 +35,6 @@ export default function HomePage({
         {lang === "es" ? "Saltar al contenido" : "Skip to content"}
       </a>
       <Nav lang={lang} t={content.nav} slug="" />
-      <Ticker text={bannerText} />
       <main id="contenido" tabIndex={-1}>
         <Hero t={content.hero} lang={lang} imageUrl={heroImageUrl} />
         <About t={content.about} lang={lang} imageUrl={aboutImageUrl} />

@@ -12,9 +12,6 @@ export default async function Page() {
   let content: SiteContent = fallbackContent;
   let privacy: PrivacyContent = fallbackPrivacy;
   let sanityFailed = false;
-  let cateringBanner_es =
-    "catering y eventos · dos semanas de anticipacion · escribenos";
-  let cateringBanner_en = "catering & events · two weeks ahead · write to us";
   let sanityData: AllContent | null = null;
 
   try {
@@ -57,12 +54,6 @@ export default async function Page() {
       privacy = sanityData.privacyNotice;
     }
 
-    if (sanityData.siteSettings?.cateringBanner_es) {
-      cateringBanner_es = sanityData.siteSettings.cateringBanner_es;
-    }
-    if (sanityData.siteSettings?.cateringBanner_en) {
-      cateringBanner_en = sanityData.siteSettings.cateringBanner_en;
-    }
   } catch (error) {
     // El respaldo mantiene la pagina en pie, pero el fallo tiene que
     // dejar rastro: el prefijo es buscable en los logs de Vercel y
@@ -101,8 +92,6 @@ export default async function Page() {
       content={content}
       privacy={privacy}
       sanityFailed={sanityFailed}
-      cateringBanner_es={cateringBanner_es}
-      cateringBanner_en={cateringBanner_en}
       heroImageUrl={heroImageUrl}
       aboutImageUrl={aboutImageUrl}
     />

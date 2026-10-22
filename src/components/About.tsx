@@ -47,10 +47,6 @@ export default function About({ t, lang, imageUrl }: AboutProps) {
               aria-hidden="true"
               loading="eager"
             />
-            <div className="about-visual-meta">
-              <span style={{ fontWeight: 700, letterSpacing: '0.22em' }}>02 / 04</span>
-              <span>merida · yuc</span>
-            </div>
             {imageUrl ? (
               <Image
                 src={imageUrl}
@@ -63,10 +59,6 @@ export default function About({ t, lang, imageUrl }: AboutProps) {
             ) : (
               <div className="about-visual-placeholder">foto: barra / manos</div>
             )}
-            <div className="about-visual-meta">
-              <span>barra</span>
-              <span>manos</span>
-            </div>
           </Reveal>
         </div>
 
